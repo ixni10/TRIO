@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fbf8f2">
+
+    <title>TRIO | استعد للتحصيلي بثقة</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+
+            <a href="dashboard.html" class="logo">
+                <img src="images/trio-logo.png" alt="TRIO">
+            </a>
+
+            <nav class="navigation">
+                <a href="dashboard.html" class="nav-link active">الرئيسية</a>
+                <a href="#subjects" class="nav-link">المواد الدراسية</a>
+                <a href="tests.html" class="nav-link">الاختبارات التجريبية</a>
+                <a href="#about" class="nav-link">عن المنصة</a>
+            </nav>
+
+            <div class="header-buttons">
+    <a href="#subjects" class="button button-primary">
+        ابدأ التعلم
+    </a>
+</div>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="فتح القائمة"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- Hero Banner -->
+        <section class="hero">
+            <a href="#subjects" class="hero-link"
+               aria-label="ابدأ رحلتك التعليمية">
+
+                <img
+                    src="images/trio-banner.png"
+                    alt="استعد للتحصيلي بثقة، رحلتك نحو التميز تبدأ من هنا"
+                    class="hero-image"
+                >
+
+            </a>
+        </section>
+
+
+        <!-- Subjects -->
+        <section class="subjects-section" id="subjects">
+
+            <div class="section-heading">
+                <span class="heading-line"></span>
+                <h1>اختر مادتك الدراسية</h1>
+                <span class="heading-line"></span>
+            </div>
+
+            <div class="subjects-grid">
+
+    <!-- الرياضيات -->
+    <a href="subjects/math.html" class="subject-card">
+        <svg class="subject-icon" viewBox="0 0 100 100"
+             aria-label="آلة حاسبة" role="img">
+            <rect x="23" y="12" width="54" height="76"
+                  rx="7" fill="none" stroke="currentColor"
+                  stroke-width="3.5"/>
+            <rect x="32" y="21" width="36" height="13"
+                  rx="2" fill="none" stroke="currentColor"
+                  stroke-width="3"/>
+            <g fill="none" stroke="currentColor" stroke-width="3">
+                <rect x="32" y="43" width="8" height="8" rx="1"/>
+                <rect x="46" y="43" width="8" height="8" rx="1"/>
+                <rect x="60" y="43" width="8" height="8" rx="1"/>
+                <rect x="32" y="57" width="8" height="8" rx="1"/>
+                <rect x="46" y="57" width="8" height="8" rx="1"/>
+                <rect x="60" y="57" width="8" height="8" rx="1"/>
+                <rect x="32" y="71" width="8" height="8" rx="1"/>
+                <rect x="46" y="71" width="8" height="8" rx="1"/>
+                <rect x="60" y="71" width="8" height="8" rx="1"/>
+            </g>
+            <path d="M79 18 L82 25 L89 28 L82 31 L79 38 L76 31 L69 28 L76 25 Z"
+                  fill="#cbb17b"/>
+        </svg>
+
+        <h2>رياضيات</h2>
+        <span class="card-line"></span>
+    </a>
+
+
+    <!-- الكيمياء -->
+    <a href="subjects/chemistry.html" class="subject-card">
+        <svg class="subject-icon" viewBox="0 0 100 100"
+             aria-label="دورق كيميائي" role="img">
+            <path d="M39 13 H61 M44 13 V39 L19 77
+                     Q15 86 26 88 H74
+                     Q85 86 81 77 L56 39 V13"
+                  fill="none" stroke="currentColor"
+                  stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M29 69 H71 L79 81 Q81 86 73 86 H27
+                     Q19 86 23 80 Z"
+                  fill="#e7d3a5"/>
+            <circle cx="40" cy="76" r="3" fill="#cbb17b"/>
+            <circle cx="56" cy="72" r="4" fill="#cbb17b"/>
+            <circle cx="49" cy="63" r="2.5" fill="#cbb17b"/>
+            <path d="M78 38 L81 45 L88 48 L81 51 L78 58
+                     L75 51 L68 48 L75 45 Z"
+                  fill="#cbb17b"/>
+            <circle cx="59" cy="7" r="2.5" fill="#cbb17b"/>
+            <circle cx="65" cy="3" r="2" fill="#cbb17b"/>
+        </svg>
+
+        <h2>كيمياء</h2>
+        <span class="card-line"></span>
+    </a>
+
+
+    <!-- الفيزياء -->
+    <a href="subjects/physics.html" class="subject-card">
+        <svg class="subject-icon" viewBox="0 0 100 100"
+             aria-label="رمز الذرة" role="img">
+            <g fill="none" stroke="currentColor" stroke-width="2.8">
+                <ellipse cx="50" cy="50" rx="37" ry="14"
+                         transform="rotate(0 50 50)"/>
+                <ellipse cx="50" cy="50" rx="37" ry="14"
+                         transform="rotate(60 50 50)"/>
+                <ellipse cx="50" cy="50" rx="37" ry="14"
+                         transform="rotate(120 50 50)"/>
+            </g>
+            <circle cx="50" cy="50" r="5.5" fill="#cbb17b"/>
+            <circle cx="82" cy="39" r="3" fill="#cbb17b"/>
+            <path d="M77 13 L80 20 L87 23 L80 26 L77 33
+                     L74 26 L67 23 L74 20 Z"
+                  fill="#cbb17b"/>
+        </svg>
+
+        <h2>فيزياء</h2>
+        <span class="card-line"></span>
+    </a>
+
+
+  <!-- الأحياء -->
+<a href="subjects/biology.html" class="subject-card">
+
+    <svg class="subject-icon biology-icon"
+         viewBox="0 0 100 100"
+         role="img"
+         aria-label="DNA">
+
+        <g fill="none"
+           stroke="#17649b"
+           stroke-width="2.4"
+           stroke-linecap="round">
+
+            <!-- الشريط الأول -->
+            <path d="
+                M37 9
+                C37 21 63 25 63 35
+                C63 45 37 49 37 59
+                C37 69 63 73 63 83
+                C63 87 58 91 54 94
+            "/>
+
+            <!-- الشريط الثاني -->
+            <path d="
+                M63 9
+                C63 21 37 25 37 35
+                C37 45 63 49 63 59
+                C63 69 37 73 37 83
+                C37 87 42 91 46 94
+            "/>
+
+            <!-- الروابط -->
+            <path d="M40 15 H60"/>
+            <path d="M47 23 H53"/>
+            <path d="M40 30 H60"/>
+            <path d="M40 40 H60"/>
+            <path d="M47 47 H53"/>
+            <path d="M40 54 H60"/>
+            <path d="M40 64 H60"/>
+            <path d="M47 71 H53"/>
+            <path d="M40 78 H60"/>
+            <path d="M44 88 H56"/>
+
+        </g>
+
+        <!-- اللمعات الذهبية -->
+        <path d="
+            M77 23 L80 30 L87 33 L80 36
+            L77 43 L74 36 L67 33 L74 30 Z
+        " fill="#cbb17b"/>
+
+        <path d="
+            M22 55 L24 60 L29 62 L24 64
+            L22 69 L20 64 L15 62 L20 60 Z
+        " fill="#cbb17b"/>
+
+    </svg>
+
+    <h2>أحياء</h2>
+    <span class="card-line"></span>
+
+</a>
+</div>
+        </section>
+
+
+        <!-- Practice Tests -->
+        <section class="tests-section" id="tests">
+
+            <div class="section-heading">
+                <span class="heading-line"></span>
+                <h2>اختبر مستواك</h2>
+                <span class="heading-line"></span>
+            </div>
+
+            <p class="section-description">
+                تدرب على الاختبارات التجريبية واستعد للتحصيلي بثقة.
+            </p>
+
+            <a href="tests.html" class="button button-primary tests-button">
+                الاختبارات التجريبية ←
+            </a>
+
+        </section>
+
+
+        <!-- About -->
+        <section class="about-section" id="about">
+
+            <h2>عن منصة TRIO</h2>
+
+            <p>
+                منصة تعليمية تساعدك على الاستعداد للاختبار التحصيلي
+                من خلال الدروس والاختبارات التجريبية.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-decoration"></div>
+
+        <p>
+            <span>TRIO</span>
+            <span class="footer-divider">|</span>
+            منصتك للاستعداد للاختبار التحصيلي
+        </p>
+
+        <small>TRIO © 2026 — crafted by ixni10</small>
+
+    </footer>
+
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navigation = document.querySelector(".navigation");
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navigation.classList.toggle("show");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+        });
+
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.addEventListener("click", () => {
+                navigation.classList.remove("show");
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+    </script>
+<script type="module">
+    import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyD4pXvEtvQucyjHViD-i0jCzEfe9PKAP0o",
+        authDomain: "trio-edu.firebaseapp.com",
+        projectId: "trio-edu",
+        storageBucket: "trio-edu.firebasestorage.app",
+        messagingSenderId: "674708890455",
+        appId: "1:674708890455:web:caf174082215dbfe1e5412",
+        measurementId: "G-WS0TP8ZFM2"
+    };
+
+    const app = getApps().length
+        ? getApps()[0]
+        : initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+    // إخفاء الصفحة إلى أن يتم التحقق من الحساب
+    document.body.style.display = "none";
+
+    onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+            window.location.replace("index.html");
+            return;
+        }
+
+        try {
+            await user.reload();
+
+            if (!auth.currentUser || !auth.currentUser.emailVerified) {
+                await auth.signOut();
+                window.location.replace("index.html");
+                return;
+            }
+
+            document.body.style.display = "";
+        } catch (error) {
+            console.error("Authentication check failed:", error);
+            await auth.signOut();
+            window.location.replace("index.html");
+        }
+    });
+</script>
+</body>
+</html>

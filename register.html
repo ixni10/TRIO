@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="أنشئي حسابك في TRIO وابدئي رحلتك التعليمية.">
+
+    <meta name="theme-color" content="#FBF7F0">
+
+    <title>إنشاء حساب | TRIO</title>
+
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- التصميم المشترك -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- تنسيقات خاصة بصفحة التسجيل -->
+    <style>
+        .register-card {
+            margin-bottom: 0;
+        }
+
+        .register-card .card-heading {
+            margin-bottom: 23px;
+        }
+
+        .register-card .form-group {
+            margin-bottom: 15px;
+        }
+
+        .register-card .input-wrapper input {
+            height: 56px;
+        }
+
+        .register-card .login-button {
+            margin-top: 8px;
+        }
+
+        .password-hint {
+            display: block;
+            margin-top: 6px;
+            color: #7B8490;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .terms-note {
+            color: #697581;
+            font-size: 12px;
+            line-height: 1.9;
+            text-align: center;
+            margin-top: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .register-card {
+                padding: 23px 18px;
+            }
+
+            .register-card .input-wrapper input {
+                height: 52px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="login-page">
+        <!-- TRIO Logo -->
+<a href="index.html" class="login-logo">
+    <img src="images/trio-logo.png" alt="TRIO">
+</a>
+
+        <section class="login-container">
+
+            
+
+            <!-- الترحيب -->
+            <header class="welcome-section">
+
+                <h1>
+                    انطلقي نحو التميز مع <span>TRIO</span>
+                </h1>
+
+                <p>
+                    رحلتك التعليمية تبدأ بخطوة
+                </p>
+
+            </header>
+
+            <!-- بطاقة إنشاء الحساب -->
+            <section class="login-card register-card">
+
+                <div class="card-heading">
+
+                    <h2>إنشاء حساب جديد</h2>
+
+                    <p>
+                        انضمي إلينا وابدئي رحلتك التعليمية
+                    </p>
+
+                </div>
+
+                <form id="register-form">
+
+                    <!-- البريد الإلكتروني -->
+                    <div class="form-group">
+
+                        <label for="register-email">
+                            البريد الإلكتروني
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <input
+                                type="email"
+                                id="register-email"
+                                name="email"
+                                placeholder="أدخلي بريدك الإلكتروني"
+                                autocomplete="email"
+                                required>
+
+                            <span class="input-icon" aria-hidden="true">
+                                ✉
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- كلمة المرور -->
+                    <div class="form-group">
+
+                        <label for="register-password">
+                            كلمة المرور
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <input
+                                type="password"
+                                id="register-password"
+                                name="password"
+                                placeholder="أنشئي كلمة مرور"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-password-target="register-password"
+                                aria-label="إظهار كلمة المرور"
+                                aria-pressed="false">
+
+                                <span aria-hidden="true">◉</span>
+
+                            </button>
+
+                        </div>
+
+                        <small class="password-hint">
+                            استخدمي 8 أحرف على الأقل.
+                        </small>
+
+                    </div>
+
+                    <!-- تأكيد كلمة المرور -->
+                    <div class="form-group">
+
+                        <label for="confirm-password">
+                            تأكيد كلمة المرور
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <input
+                                type="password"
+                                id="confirm-password"
+                                name="confirm-password"
+                                placeholder="أعيدي كتابة كلمة المرور"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-password-target="confirm-password"
+                                aria-label="إظهار تأكيد كلمة المرور"
+                                aria-pressed="false">
+
+                                <span aria-hidden="true">◉</span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- الموافقة -->
+                    <div class="terms-note">
+
+                        بإنشاء حسابك، ستتمكنين من الوصول إلى
+                        الخدمات التعليمية المتاحة في TRIO.
+
+                    </div>
+
+                    <!-- زر إنشاء الحساب -->
+                    <button
+                        type="submit"
+                        class="login-button">
+
+                        <span>إنشاء الحساب</span>
+
+                        <span class="button-arrow" aria-hidden="true">
+                            ←
+                        </span>
+
+                    </button>
+
+                    <!-- رسائل الحالة -->
+                    <p
+                        id="register-message"
+                        class="form-message"
+                        role="status"
+                        aria-live="polite">
+                    </p>
+
+                </form>
+
+                <!-- العودة إلى تسجيل الدخول -->
+                <div class="register-section">
+
+                    <span class="divider">
+                        <span></span>
+                        أو
+                        <span></span>
+                    </span>
+
+                    <p>
+                        لديك حساب بالفعل؟
+
+                        <a href="index.html">
+                            تسجيل الدخول
+                        </a>
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- حقوق التطوير -->
+        <footer class="site-footer">
+
+            <span class="footer-line"></span>
+
+            <p dir="ltr">
+                TRIO © 2026 — crafted by ixni10
+            </p>
+
+            <span class="footer-line"></span>
+
+        </footer>
+
+    </main>
+
+<script type="module" src="script.js"></script>
+</body>
+
+</html>

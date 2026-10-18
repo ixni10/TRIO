@@ -1,0 +1,914 @@
+/* ========================================
+   TRIO — Login Page
+   الهوية البصرية الرسمية للمنصة
+======================================== */
+
+/* الألوان الأساسية */
+:root {
+    --cream: #FBF7F0;
+    --cream-light: #FFFCF7;
+
+    --blue-dark: #164773;
+    --blue: #5D8DBD;
+    --blue-light: #A9C9E2;
+    --blue-pale: #EAF2F8;
+
+    --gold: #D8B574;
+    --gold-light: #E9D5A9;
+
+    --text: #344454;
+    --text-muted: #7B8490;
+
+    --white: #FFFFFF;
+    --border: #B5D0E6;
+
+    --shadow: 0 15px 40px rgba(30, 69, 105, 0.08);
+}
+
+
+/* ========================================
+   الإعدادات العامة
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Cairo", sans-serif;
+    color: var(--text);
+    background-color: var(--cream);
+    direction: rtl;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ========================================
+   الصفحة الرئيسية لتسجيل الدخول
+======================================== */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    isolation: isolate;
+
+    padding: 28px 24px 15px;
+    overflow: hidden;
+}
+
+/* صورة الخلفية */
+
+.login-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background-image:
+        linear-gradient(
+            rgba(251, 247, 240, 0.05),
+            rgba(251, 247, 240, 0.05)
+        ),
+        url("images/trio-background.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* طبقة خفيفة للمحافظة على وضوح النصوص */
+
+.login-page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 252, 247, 0.08) 0%,
+            rgba(255, 252, 247, 0.02) 60%,
+            rgba(255, 252, 247, 0.15) 100%
+        );
+}
+
+
+/* ========================================
+   الشعار
+======================================== */
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+
+    margin-bottom: 8px;
+}
+
+.brand-name {
+    position: relative;
+
+    color: var(--blue-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 43px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.05;
+
+    transition: color 0.25s ease;
+}
+
+.brand-name:hover {
+    color: var(--blue);
+}
+
+.brand-star {
+    position: absolute;
+    top: -3px;
+    right: -13px;
+
+    color: var(--gold);
+    font-size: 17px;
+}
+
+.brand-arabic {
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* ========================================
+   العنوان الترحيبي
+======================================== */
+
+.login-container {
+    width: 100%;
+    max-width: 650px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: auto 0;
+}
+
+.welcome-section {
+    width: 100%;
+    text-align: center;
+
+    margin-bottom: 27px;
+    animation: fadeIn 0.7s ease both;
+}
+
+.welcome-section h1 {
+    color: var(--blue-dark);
+
+    font-size: clamp(25px, 3vw, 43px);
+    font-weight: 800;
+    line-height: 1.7;
+
+    margin-bottom: 1px;
+}
+
+.welcome-section h1 span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    direction: ltr;
+    display: inline-block;
+}
+
+.welcome-section p {
+    color: var(--blue);
+
+    font-size: clamp(15px, 1.7vw, 22px);
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   بطاقة تسجيل الدخول
+======================================== */
+
+.login-card {
+    width: 100%;
+    max-width: 558px;
+
+    padding: 29px 45px 32px;
+
+    background: rgba(255, 252, 247, 0.82);
+
+    border: 1.2px solid var(--blue-light);
+    border-radius: 21px;
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    animation: cardAppear 0.8s ease both;
+}
+
+
+/* عنوان البطاقة */
+
+.card-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-heading h2 {
+    color: var(--blue-dark);
+
+    font-size: 28px;
+    font-weight: 800;
+
+    margin-bottom: 4px;
+}
+
+.card-heading p {
+    color: #59616A;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    line-height: 1.9;
+}
+
+
+/* ========================================
+   حقول الإدخال
+======================================== */
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-group label {
+    display: block;
+
+    color: var(--blue-dark);
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper input {
+    width: 100%;
+    height: 62px;
+
+    padding: 12px 45px 12px 43px;
+
+    color: var(--text);
+    background: rgba(255, 252, 247, 0.6);
+
+    border: 1px solid #D5D8DB;
+    border-radius: 13px;
+
+    outline: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    text-align: right;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.input-wrapper input::placeholder {
+    color: #92969A;
+    opacity: 1;
+}
+
+.input-wrapper input:hover {
+    border-color: var(--blue-light);
+}
+
+.input-wrapper input:focus {
+    border-color: var(--blue);
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow: 0 0 0 3px rgba(93, 141, 189, 0.12);
+}
+
+/* أيقونة الحقل */
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #344454;
+    font-size: 22px;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   زر إظهار كلمة المرور
+======================================== */
+
+.password-toggle {
+    position: absolute;
+
+    left: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    color: #344454;
+    background: transparent;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 19px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.password-toggle:hover {
+    color: var(--blue-dark);
+    background: var(--blue-pale);
+}
+
+
+/* ========================================
+   نسيت كلمة المرور؟
+======================================== */
+
+.forgot-password {
+    display: flex;
+    justify-content: flex-start;
+
+    margin-top: -5px;
+    margin-bottom: 22px;
+}
+
+.forgot-password a {
+    color: #175A91;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border-bottom: 1px solid rgba(23, 90, 145, 0.6);
+    padding-bottom: 3px;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.forgot-password a:hover {
+    color: var(--blue);
+    border-color: var(--gold);
+}
+
+
+/* ========================================
+   زر تسجيل الدخول
+======================================== */
+
+.login-button {
+    position: relative;
+
+    width: 100%;
+    min-height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 48px;
+
+    color: var(--white);
+
+    background: linear-gradient(
+        110deg,
+        #6797C5 0%,
+        #5786B5 55%,
+        #4E80B2 100%
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+
+    box-shadow: 0 7px 16px rgba(67, 113, 158, 0.13);
+
+    font-size: 20px;
+    font-weight: 600;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.login-button::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 55%;
+    height: 100%;
+
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+
+    transition: left 0.6s ease;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 22px rgba(67, 113, 158, 0.2);
+
+    background: linear-gradient(
+        110deg,
+        #5C8DBB,
+        #3F73A5
+    );
+}
+
+.login-button:hover::before {
+    left: 130%;
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.login-button:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.button-arrow {
+    position: absolute;
+    left: 28px;
+
+    font-size: 26px;
+    font-weight: 400;
+}
+
+
+/* ========================================
+   رسائل حالة النموذج
+======================================== */
+
+.form-message {
+    min-height: 0;
+
+    margin-top: 0;
+
+    font-size: 13px;
+    line-height: 1.8;
+
+    text-align: center;
+}
+
+.form-message:not(:empty) {
+    margin-top: 14px;
+}
+
+.form-message.error {
+    color: #A63D43;
+}
+
+.form-message.success {
+    color: #28744D;
+}
+
+
+/* ========================================
+   الفاصل ورابط إنشاء الحساب
+======================================== */
+
+.register-section {
+    margin-top: 23px;
+    text-align: center;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 17px;
+
+    color: #59616A;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    margin-bottom: 20px;
+}
+
+.divider span {
+    height: 1px;
+    flex: 1;
+
+    background: linear-gradient(
+        to left,
+        rgba(190, 197, 203, 0.12),
+        rgba(190, 197, 203, 0.8)
+    );
+}
+
+.register-section p {
+    color: #59616A;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.register-section a {
+    display: inline-block;
+
+    color: #175A91;
+    font-weight: 700;
+
+    margin-right: 6px;
+    padding-bottom: 4px;
+
+    border-bottom: 1px solid var(--gold);
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.register-section a:hover {
+    color: var(--blue);
+    border-color: var(--blue);
+}
+
+
+
+/* ========================================
+   TRIO — Developer Signature
+======================================== */
+
+.site-footer {
+    width: 100%;
+    max-width: 940px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-top: 30px;
+    padding: 9px 0 0;
+}
+
+.site-footer p {
+    color: rgba(35, 100, 151, 0.48);
+
+    font-family: "Cairo", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+
+    line-height: 1.9;
+    text-align: center;
+    white-space: nowrap;
+
+    letter-spacing: 0.15px;
+
+    transition: color 0.25s ease;
+}
+
+/* ظهور هادئ عند مرور المؤشر */
+
+.site-footer p:hover {
+    color: rgba(35, 100, 151, 0.70);
+}
+
+/* الخطوط الجانبية */
+
+.footer-line {
+    height: 1px;
+    flex: 1;
+
+    max-width: 250px;
+
+    background: rgba(100, 153, 193, 0.30);
+}
+
+/* الجوال */
+
+@media (max-width: 480px) {
+    .site-footer {
+        gap: 8px;
+        margin-top: 23px;
+    }
+
+    .site-footer p {
+        font-size: 9px;
+        white-space: normal;
+    }
+
+    .footer-line {
+        max-width: 35px;
+    }
+}
+
+
+/* ========================================
+   الحركة
+======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   الشاشات المتوسطة
+======================================== */
+
+@media (max-width: 768px) {
+
+    .login-page {
+        padding: 24px 18px 14px;
+    }
+
+    .login-container {
+        max-width: 540px;
+    }
+
+    .welcome-section {
+        margin-bottom: 23px;
+    }
+
+    .welcome-section h1 {
+        font-size: clamp(25px, 5vw, 36px);
+    }
+
+    .login-card {
+        padding: 28px 30px;
+    }
+
+    .card-heading h2 {
+        font-size: 25px;
+    }
+
+    .input-wrapper input {
+        height: 57px;
+    }
+
+    .login-button {
+        min-height: 59px;
+        font-size: 18px;
+    }
+
+    .site-footer {
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .site-footer p {
+        font-size: 10px;
+    }
+}
+
+
+/* ========================================
+   شاشات الجوال
+======================================== */
+
+@media (max-width: 480px) {
+
+    .login-page {
+        padding: 20px 14px 12px;
+    }
+
+    .login-page::before {
+        background-position: 43% center;
+    }
+
+    .brand {
+        margin-bottom: 12px;
+    }
+
+    .brand-name {
+        font-size: 36px;
+    }
+
+    .welcome-section {
+        margin-bottom: 21px;
+    }
+
+    .welcome-section h1 {
+        font-size: 25px;
+        line-height: 1.8;
+    }
+
+    .welcome-section p {
+        font-size: 14px;
+    }
+
+    .login-card {
+        padding: 25px 20px 26px;
+        border-radius: 17px;
+
+        background: rgba(255, 252, 247, 0.9);
+    }
+
+    .card-heading {
+        margin-bottom: 24px;
+    }
+
+    .card-heading h2 {
+        font-size: 23px;
+    }
+
+    .card-heading p {
+        font-size: 13px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .input-wrapper input {
+        height: 54px;
+        font-size: 14px;
+    }
+
+    .input-icon {
+        font-size: 19px;
+    }
+
+    .login-button {
+        min-height: 55px;
+        font-size: 17px;
+    }
+
+    .button-arrow {
+        left: 22px;
+        font-size: 23px;
+    }
+
+    .register-section {
+        margin-top: 21px;
+    }
+
+    .divider {
+        gap: 12px;
+        margin-bottom: 17px;
+    }
+
+    .register-section p {
+        font-size: 13px;
+    }
+
+    .register-section a {
+        margin-right: 3px;
+    }
+
+    .site-footer {
+        gap: 9px;
+        margin-top: 23px;
+    }
+
+    .site-footer p {
+        font-size: 9px;
+    }
+
+    .footer-line {
+        max-width: 50px;
+    }
+}
+
+
+/* ========================================
+   تقليل الحركة لمن يفضل ذلك
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+/* TRIO Logo - Login Page */
+
+.login-logo {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    z-index: 10;
+    display: block;
+    width: 240px;
+    height: 140px;
+}
+
+.login-logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .login-logo {
+        top: 10px;
+        right: 12px;
+        width: 130px;
+        height: 75px;
+    }
+}
