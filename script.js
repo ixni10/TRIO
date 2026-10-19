@@ -285,3 +285,61 @@ setTimeout(() => {
         }
     });
 }
+
+// إظهار وإخفاء كلمة المرور
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("toggle-password");
+const passwordIcon = document.getElementById("password-icon");
+
+if (passwordInput && togglePassword) {
+    togglePassword.addEventListener("click", () => {
+        const isHidden = passwordInput.type === "password";
+
+        passwordInput.type = isHidden ? "text" : "password";
+
+        togglePassword.setAttribute(
+            "aria-label",
+            isHidden ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"
+        );
+
+        togglePassword.setAttribute("aria-pressed", String(isHidden));
+
+        if (passwordIcon) {
+            passwordIcon.textContent = isHidden ? "◎" : "◉";
+        }
+    });
+}
+
+
+
+// إظهار وإخفاء كلمات المرور في صفحة إنشاء الحساب
+const registerPasswordToggles = document.querySelectorAll(
+    'button.password-toggle[data-password-target]'
+);
+
+registerPasswordToggles.forEach((button) => {
+    const targetId = button.getAttribute("data-password-target");
+    const input = document.getElementById(targetId);
+
+    if (!input) return;
+
+    button.addEventListener("click", () => {
+        const isHidden = input.type === "password";
+
+        input.type = isHidden ? "text" : "password";
+
+        button.setAttribute(
+            "aria-label",
+            isHidden ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"
+        );
+
+        button.setAttribute("aria-pressed", String(isHidden));
+
+        const icon = button.querySelector("span");
+        if (icon) {
+            icon.textContent = isHidden ? "◎" : "◉";
+        }
+    });
+});
+
+
