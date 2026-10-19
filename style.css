@@ -197,7 +197,7 @@ overflow-y: visible;}
 .welcome-section h1 {
     color: var(--blue-dark);
 
-    font-size: clamp(25px, 3vw, 43px);
+    font-size: clamp(24px, 2.5vw, 36px);
     font-weight: 800;
     line-height: 1.7;
 
