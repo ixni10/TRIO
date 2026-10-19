@@ -1,0 +1,534 @@
+/* ========================================
+   TRIO — Profile Page
+   ======================================== */
+
+:root {
+    --profile-bg: #fbf8f2;
+    --profile-white: #ffffff;
+    --profile-blue: #315b85;
+    --profile-blue-light: #eaf2f8;
+    --profile-blue-soft: #dceaf5;
+    --profile-gold: #cbb17b;
+    --profile-text: #24466c;
+    --profile-muted: #7e94ad;
+    --profile-border: #d7e2eb;
+    --profile-green: #80c9b2;
+    --profile-pink: #f3dce0;
+    --profile-purple: #e6e0f4;
+    --profile-shadow: 0 5px 20px rgba(49, 91, 133, 0.055);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--profile-bg);
+    color: var(--profile-text);
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+.profile-page {
+    width: min(1380px, 92%);
+    margin: 0 auto;
+    padding: 30px 0 55px;
+}
+
+/* Page heading */
+
+.profile-heading {
+    margin-bottom: 24px;
+    text-align: right;
+}
+
+.profile-heading h1 {
+    margin: 0 0 7px;
+    color: #173f69;
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 750;
+}
+
+.profile-heading h1::before {
+    content: "✦";
+    margin-left: 10px;
+    color: var(--profile-gold);
+    font-size: 23px;
+}
+
+.profile-heading p {
+    margin: 0;
+    color: var(--profile-muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Student profile card */
+
+.student-profile-card {
+    display: grid;
+    grid-template-columns: 1.45fr 0.85fr;
+    gap: 30px;
+    align-items: center;
+    padding: 22px;
+    margin-bottom: 18px;
+    border: 1px solid var(--profile-border);
+    border-radius: 19px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: var(--profile-shadow);
+}
+
+.student-identity {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-width: 0;
+}
+
+.student-avatar {
+    display: grid;
+    flex: 0 0 112px;
+    width: 112px;
+    height: 112px;
+    place-items: center;
+    border: 2px solid #d4e4f2;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f5f9fc, #e2edf7);
+}
+
+.student-avatar svg {
+    width: 55px;
+    height: 55px;
+    fill: none;
+    stroke: #356b9f;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.student-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.student-name-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.student-name-row h2 {
+    margin: 0;
+    color: #173f69;
+    font-size: clamp(19px, 2vw, 25px);
+}
+
+.student-name-row button,
+#settingsEditName {
+    padding: 9px 14px;
+    border: 1px solid #bcd2e6;
+    border-radius: 11px;
+    background: #f5f9fc;
+    color: var(--profile-blue);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.student-name-row button:hover,
+#settingsEditName:hover {
+    background: #e5eff8;
+    border-color: #91b5d8;
+}
+
+#studentEmail {
+    overflow-wrap: anywhere;
+    margin: 13px 0;
+    color: var(--profile-blue);
+    font-size: 15px;
+}
+
+.student-quote {
+    margin: 18px 0 0;
+    color: var(--profile-muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.student-quote::before {
+    content: "♥";
+    margin-left: 8px;
+    color: #d0bca8;
+}
+
+/* Account information */
+
+.account-information {
+    align-self: stretch;
+    padding: 19px 21px;
+    border-right: 1px solid #d2dfeb;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #f0f5f9, #f8fafb);
+}
+
+.account-information h3 {
+    margin: 0 0 20px;
+    font-size: 17px;
+    color: var(--profile-blue);
+}
+
+.account-information p {
+    margin: 13px 0;
+    color: #6c88a6;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.account-information span {
+    color: var(--profile-text);
+}
+
+/* Statistics */
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.stat-card {
+    position: relative;
+    min-width: 0;
+    min-height: 118px;
+    padding: 18px;
+    overflow: hidden;
+    border: 1px solid var(--profile-border);
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: var(--profile-shadow);
+}
+
+.stat-card:nth-child(1) {
+    background: linear-gradient(135deg, #f1f6fa, #eaf1f7);
+}
+
+.stat-card:nth-child(2) {
+    background: linear-gradient(135deg, #f0f7f3, #eaf4ee);
+}
+
+.stat-card:nth-child(3) {
+    background: linear-gradient(135deg, #fbf1f2, #f8e9ec);
+}
+
+.stat-card:nth-child(4) {
+    background: linear-gradient(135deg, #fbf6eb, #f8f0e2);
+}
+
+.stat-card h3 {
+    margin: 0 0 9px;
+    color: var(--profile-blue);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.stat-card strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #153f6d;
+    font-size: 27px;
+    font-weight: 750;
+}
+
+.stat-card span {
+    display: block;
+    color: var(--profile-muted);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+/* General sections */
+
+.profile-section {
+    min-width: 0;
+    padding: 22px;
+    margin-bottom: 17px;
+    border: 1px solid var(--profile-border);
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: var(--profile-shadow);
+}
+
+.profile-section h2 {
+    margin: 0 0 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e6edf3;
+    color: #173f69;
+    font-size: 19px;
+}
+
+.empty-state {
+    padding: 20px 12px;
+    margin: 0;
+    border-radius: 12px;
+    background: #f7f9fb;
+    color: var(--profile-muted);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* Subject progress */
+
+#subjectsProgress {
+    display: grid;
+    gap: 15px;
+}
+
+.subject-progress-row {
+    display: grid;
+    grid-template-columns: minmax(95px, 0.65fr) minmax(100px, 1.5fr) 48px;
+    align-items: center;
+    gap: 14px;
+}
+
+.subject-progress-name {
+    color: var(--profile-text);
+    font-size: 14px;
+}
+
+.subject-progress-track {
+    height: 13px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #f0efec;
+}
+
+.subject-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #a7cde9, #6ea6d5);
+    transition: width 0.5s ease;
+}
+
+.subject-progress-value {
+    color: var(--profile-blue);
+    font-size: 14px;
+    text-align: left;
+}
+
+/* Performance chart */
+
+.chart-placeholder {
+    display: grid;
+    min-height: 160px;
+    padding: 20px;
+    place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #f5f8fb, #fff);
+    color: var(--profile-muted);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* Grade distribution */
+
+#gradeDistribution {
+    display: grid;
+    gap: 13px;
+}
+
+.grade-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 0.8fr) minmax(100px, 1.5fr) 38px;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.grade-row-track {
+    height: 11px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #f0efec;
+}
+
+.grade-row-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: #8db9df;
+}
+
+/* Recent tests table */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e4eaf0;
+    border-radius: 12px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.table-container th {
+    padding: 13px 15px;
+    background: #eef3f7;
+    color: #5e7fa2;
+    font-weight: 500;
+    text-align: right;
+}
+
+.table-container td {
+    padding: 14px 15px;
+    border-top: 1px solid #edf0f3;
+    color: var(--profile-text);
+    text-align: right;
+}
+
+.table-container tbody tr:hover {
+    background: #f9fbfd;
+}
+
+/* Account settings */
+
+.account-settings {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.account-settings h2 {
+    flex: 0 0 100%;
+}
+
+.account-settings button {
+    padding: 12px 17px;
+    border: 1px solid #dbe4ec;
+    border-radius: 11px;
+    background: #fff;
+    color: var(--profile-blue);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.account-settings button:hover {
+    background: #f1f6fa;
+}
+
+#logoutButton {
+    color: #bd6478;
+    border-color: #efd9de;
+}
+
+/* Footer */
+
+.profile-page + .footer {
+    margin-top: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+    .student-profile-card {
+        grid-template-columns: 1fr;
+    }
+
+    .account-information {
+        border-right: 0;
+        border-top: 1px solid #d2dfeb;
+    }
+
+    .statistics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-page {
+        width: 94%;
+        padding-top: 22px;
+    }
+
+    .student-profile-card {
+        padding: 17px;
+        gap: 20px;
+    }
+
+    .student-identity {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .student-avatar {
+        flex-basis: 85px;
+        width: 85px;
+        height: 85px;
+    }
+
+    .student-avatar svg {
+        width: 43px;
+        height: 43px;
+    }
+
+    .student-name-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .statistics-grid {
+        gap: 9px;
+    }
+
+    .stat-card {
+        min-height: 108px;
+        padding: 14px;
+    }
+
+    .stat-card h3 {
+        font-size: 12px;
+    }
+
+    .stat-card strong {
+        font-size: 24px;
+    }
+
+    .profile-section {
+        padding: 16px;
+    }
+
+    .subject-progress-row {
+        grid-template-columns: 85px minmax(50px, 1fr) 38px;
+        gap: 8px;
+    }
+
+    .subject-progress-name,
+    .subject-progress-value {
+        font-size: 12px;
+    }
+
+    .grade-row {
+        grid-template-columns: 95px minmax(50px, 1fr) 30px;
+        gap: 8px;
+        font-size: 11px;
+    }
+
+    .account-settings {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .account-settings button {
+        width: 100%;
+    }
+}

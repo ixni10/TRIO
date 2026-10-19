@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fbf8f2">
+
+    <title>TRIO | الملف الشخصي</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+
+            <a href="dashboard.html" class="logo">
+                <img src="images/trio-logo.png" alt="TRIO">
+            </a>
+
+            <nav class="navigation">
+                <a href="dashboard.html" class="nav-link">الرئيسية</a>
+                <a href="dashboard.html#subjects" class="nav-link">المواد الدراسية</a>
+            </nav>
+
+            <div class="header-buttons">
+                <a href="dashboard.html" class="button button-primary">
+                    العودة للرئيسية
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="profile-page">
+
+        <section class="profile-heading">
+            <h1>الملف الشخصي</h1>
+            <p>مساحتك الشخصية في TRIO لمتابعة إنجازاتكِ وتطوركِ.</p>
+        </section>
+
+        <!-- معلومات الطالبة -->
+        <section class="student-profile-card">
+            <div class="student-identity">
+                <div class="student-avatar" aria-label="قبعة التخرج">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M2 9.5 12 4l10 5.5L12 15 2 9.5Z"/>
+                        <path d="M6 12v5c3.5 2.5 8.5 2.5 12 0v-5"/>
+                        <path d="M22 9.5v6"/>
+                    </svg>
+                </div>
+
+                <div class="student-details">
+                    <div class="student-name-row">
+                        <h2 id="studentName">جارٍ تحميل الاسم...</h2>
+                        <button id="editNameButton" type="button">
+                            تعديل الاسم
+                        </button>
+                    </div>
+
+                    <p id="studentEmail">جارٍ تحميل البريد الإلكتروني...</p>
+                    <p class="student-quote">خطوة صغيرة كل يوم تصنع فرقًا كبيرًا.</p>
+                </div>
+            </div>
+
+            <div class="account-information">
+                <h3>معلومات الحساب</h3>
+                <p>تاريخ إنشاء الحساب: <span id="accountCreated">—</span></p>
+                <p>حالة الحساب: <span id="accountStatus">جارٍ التحقق...</span></p>
+            </div>
+        </section>
+
+        <!-- الإحصائيات الرئيسية -->
+        <section class="statistics-grid">
+
+            <article class="stat-card">
+                <h3>إجمالي الاختبارات</h3>
+                <strong id="totalTests">0</strong>
+                <span>اختبار</span>
+            </article>
+
+            <article class="stat-card">
+                <h3>الاختبارات المكتملة</h3>
+                <strong id="completedTests">0</strong>
+                <span>اختبار</span>
+            </article>
+
+            <article class="stat-card">
+                <h3>متوسط الدرجات</h3>
+                <strong id="averageScore">—</strong>
+                <span>متوسط عام</span>
+            </article>
+
+            <article class="stat-card">
+                <h3>أعلى درجة</h3>
+                <strong id="highestScore">—</strong>
+                <span id="highestSubject">لا توجد نتائج بعد</span>
+            </article>
+
+        </section>
+
+        <!-- تقدم المواد -->
+        <section class="profile-section">
+            <h2>تقدمك في المواد</h2>
+
+            <div id="subjectsProgress">
+                <p class="empty-state">ستظهر نتائج المواد بعد إكمال الاختبارات.</p>
+            </div>
+        </section>
+
+        <!-- الأداء الأخير -->
+        <section class="profile-section">
+            <h2>أداؤك الأخير</h2>
+
+            <div id="performanceChart" class="chart-placeholder">
+                سيظهر الرسم البياني بعد تسجيل نتائج الاختبارات.
+            </div>
+        </section>
+
+        <!-- توزيع الدرجات -->
+        <section class="profile-section">
+            <h2>نسبة الدرجات</h2>
+
+            <div id="gradeDistribution">
+                <p class="empty-state">لا توجد درجات لعرض توزيعها حتى الآن.</p>
+            </div>
+        </section>
+
+        <!-- أحدث الاختبارات -->
+        <section class="profile-section">
+            <h2>أحدث الاختبارات</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الاختبار</th>
+                            <th>المادة</th>
+                            <th>الدرجة</th>
+                            <th>التاريخ</th>
+                            <th>الحالة</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="recentTests">
+                        <tr>
+                            <td colspan="5">لم تُجرَ اختبارات بعد.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- إعدادات الحساب -->
+        <section class="profile-section account-settings">
+            <h2>إعدادات الحساب</h2>
+
+            <button type="button" id="settingsEditName">
+                تعديل الاسم
+            </button>
+
+            <button type="button" id="changePasswordButton">
+                تغيير كلمة المرور
+            </button>
+
+            <button type="button" id="logoutButton">
+                تسجيل الخروج
+            </button>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>TRIO © 2026 — crafted by ixni10</p>
+    </footer>
+
+    <script type="module" src="profile.js"></script>
+
+</body>
+</html>

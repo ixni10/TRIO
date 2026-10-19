@@ -27,10 +27,70 @@
                 <a href="#about" class="nav-link">عن المنصة</a>
             </nav>
 
-            <div class="header-buttons">
+           <div class="header-buttons">
     <a href="#subjects" class="button button-primary">
         ابدأ التعلم
     </a>
+
+    <div class="profile-container" id="profileContainer">
+        <button
+            type="button"
+            class="profile-button"
+            id="profileButton"
+            aria-expanded="false"
+            aria-controls="profileDropdown"
+        >
+<span class="profile-avatar" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="20" height="20"
+         fill="none" stroke="currentColor"
+         stroke-width="1.7" stroke-linecap="round"
+         stroke-linejoin="round">
+        <path d="M2 9.5 12 4l10 5.5L12 15 2 9.5Z"/>
+        <path d="M6 12v5c3.5 2.5 8.5 2.5 12 0v-5"/>
+        <path d="M22 9.5v6"/>
+    </svg>
+</span>            <span class="profile-button-text">حسابي</span>
+            <span class="profile-chevron" aria-hidden="true">⌄</span>
+        </button>
+
+        <div class="profile-dropdown" id="profileDropdown" hidden>
+            <div class="profile-welcome">
+               <span class="profile-avatar profile-avatar-large" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="36" height="36"
+         fill="none" stroke="currentColor" stroke-width="1.7"
+         stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 9.5 12 4l10 5.5L12 15 2 9.5Z"/>
+        <path d="M6 12v5c3.5 3 8.5 3 12 0v-5"/>
+        <path d="M22 9.5V16"/>
+    </svg>
+</span>
+                <div>
+                    <p class="profile-greeting">مرحباً،</p>
+                    <strong id="profileName">الطالبة</strong>
+                    <small id="profileEmail"></small>
+                </div>
+            </div>
+
+            <div class="profile-divider"></div>
+
+            <button type="button" class="profile-menu-item" id="profileDetailsButton">
+<span aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 24 24"
+         fill="none" stroke="currentColor" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round"
+         style="vertical-align: middle;">
+        <circle cx="12" cy="8" r="3.5"/>
+        <path d="M5 20v-2a7 7 0 0 1 14 0v2"/>
+    </svg>
+</span>                الملف الشخصي
+            </button>
+
+            <button type="button" class="profile-menu-item profile-logout" id="logoutButton">
+                <span aria-hidden="true">↪</span>
+                تسجيل الخروج
+            </button>
+        </div>
+    </div>
 </div>
 
             <button class="menu-toggle" id="menuToggle"
@@ -288,7 +348,19 @@
     </script>
 <script type="module">
     import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+
+    import {
+        getAuth,
+        onAuthStateChanged,
+        signOut
+    } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+
+    import {
+        getFirestore,
+        doc,
+        getDoc,
+        setDoc
+    } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyD4pXvEtvQucyjHViD-i0jCzEfe9PKAP0o",
@@ -305,10 +377,58 @@
         : initializeApp(firebaseConfig);
 
     const auth = getAuth(app);
+    const db = getFirestore(app);
 
-    // إخفاء الصفحة إلى أن يتم التحقق من الحساب
+    // عناصر البروفايل
+    const profileButton = document.getElementById("profileButton");
+    const profileDropdown = document.getElementById("profileDropdown");
+    const profileButtonText = document.querySelector(".profile-button-text");
+    const profileName = document.getElementById("profileName");
+    const profileEmail = document.getElementById("profileEmail");
+    const logoutButton = document.getElementById("logoutButton");
+    const profileDetailsButton = document.getElementById("profileDetailsButton");
+
+    // إخفاء الصفحة حتى التحقق من الحساب
     document.body.style.display = "none";
 
+    // فتح وإغلاق قائمة البروفايل
+    profileButton?.addEventListener("click", () => {
+        const isOpen = profileButton.getAttribute("aria-expanded") === "true";
+
+        profileButton.setAttribute("aria-expanded", String(!isOpen));
+        profileDropdown.hidden = isOpen;
+    });
+
+    // إغلاق القائمة عند الضغط خارجها
+    document.addEventListener("click", (event) => {
+        const container = document.getElementById("profileContainer");
+
+        if (container && !container.contains(event.target)) {
+            profileDropdown.hidden = true;
+            profileButton?.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    // تسجيل الخروج
+    logoutButton?.addEventListener("click", async () => {
+        logoutButton.disabled = true;
+
+        try {
+            await signOut(auth);
+            window.location.replace("index.html");
+        } catch (error) {
+            console.error("Logout error:", error);
+            alert("تعذر تسجيل الخروج. حاولي مرة أخرى.");
+            logoutButton.disabled = false;
+        }
+    });
+
+    // زر الملف الشخصي
+    profileDetailsButton?.addEventListener("click", () => {
+    window.location.href = "profile.html";
+});
+
+    // التحقق من تسجيل الدخول
     onAuthStateChanged(auth, async (user) => {
         if (!user) {
             window.location.replace("index.html");
@@ -318,17 +438,65 @@
         try {
             await user.reload();
 
-            if (!auth.currentUser || !auth.currentUser.emailVerified) {
-                await auth.signOut();
+            const currentUser = auth.currentUser;
+
+            if (!currentUser || !currentUser.emailVerified) {
+                await signOut(auth);
                 window.location.replace("index.html");
                 return;
             }
 
+            // قراءة بيانات الطالبة
+            const userRef = doc(db, "users", currentUser.uid);
+            const userSnapshot = await getDoc(userRef);
+
+            let displayName = "";
+
+            if (userSnapshot.exists()) {
+                displayName = userSnapshot.data().displayName || "";
+            }
+
+            // طلب الاسم من الحسابات القديمة التي لا تملكه
+            while (!displayName || displayName.trim().length < 2) {
+                const enteredName = prompt(
+                    "مرحبًا بك في TRIO \nأدخل اسمك الذي سيظهر في البروفايل:"
+                );
+
+                if (enteredName === null) {
+                    alert("يجب إدخال اسمك للمتابعة.");
+                    continue;
+                }
+
+                const cleanName = enteredName.trim();
+
+                if (cleanName.length < 2 || cleanName.length > 60) {
+                    alert("الاسم يجب أن يكون بين حرفين و60 حرفًا.");
+                    continue;
+                }
+
+                await setDoc(userRef, {
+                    displayName: cleanName,
+                    email: currentUser.email
+                });
+
+                displayName = cleanName;
+            }
+
+            // عرض الاسم والبريد الإلكتروني
+            profileButtonText.textContent = displayName;
+            profileName.textContent = displayName;
+            profileEmail.textContent = currentUser.email || "";
+
             document.body.style.display = "";
+
         } catch (error) {
-            console.error("Authentication check failed:", error);
-            await auth.signOut();
-            window.location.replace("index.html");
+            console.error("Dashboard initialization error:", error);
+
+            document.body.style.display = "";
+
+            alert(
+                "تعذر تحميل بيانات البروفايل. تحققي من اتصال الإنترنت وصلاحيات Firestore."
+            );
         }
     });
 </script>

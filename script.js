@@ -88,6 +88,10 @@ if (registerForm) {
         const email = emailInput.value.trim();
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
+       
+       // قراءة اسم الطالبة
+        const nameInput = document.getElementById("register-name");
+const displayName = nameInput.value.trim();
 
         message.textContent = "";
         message.style.color = "";
@@ -106,30 +110,56 @@ if (registerForm) {
             return;
         }
 
+        if (displayName.length < 2 || displayName.length > 60) {
+    message.textContent = "الاسم يجب أن يكون بين حرفين و60 حرفًا.";
+    message.style.color = "#C0394A";
+    nameInput.focus();
+    return;
+}
+
         submitButton.disabled = true;
         buttonText.textContent = "جارٍ إنشاء الحساب...";
 
         try {
-            const userCredential = await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+           const userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+);
 
-            try {
-                await sendEmailVerification(userCredential.user);
+const user = userCredential.user;
 
-                message.textContent =
-                    "تم إنشاء حسابك بنجاح! تحققي من بريدك الإلكتروني لتأكيد الحساب.";
-            } catch (verificationError) {
-                console.error("Email verification error:", verificationError);
+// حفظ اسم الطالبة وبريدها في Firestore
+try {
+    await setDoc(doc(db, "users", user.uid), {
+        displayName: displayName,
+        email: user.email
+    });
+} catch (saveError) {
+    console.error("Profile save error:", saveError);
 
-                message.textContent =
-                    "تم إنشاء حسابك، لكن تعذر إرسال رسالة التحقق. يمكنك طلبها لاحقًا.";
-            }
+    message.textContent =
+        "تم إنشاء الحساب، لكن تعذر حفظ الاسم. يرجى التواصل مع الإدارة.";
 
-            message.style.color = "#287A52";
-            registerForm.reset();
+    message.style.color = "#C0394A";
+    return;
+}
+
+// إرسال رسالة التحقق من البريد الإلكتروني
+try {
+    await sendEmailVerification(user);
+
+    message.textContent =
+        "تم إنشاء حسابك بنجاح! تحققي من بريدك الإلكتروني لتأكيد الحساب.";
+} catch (verificationError) {
+    console.error("Email verification error:", verificationError);
+
+    message.textContent =
+        "تم إنشاء حسابك، لكن تعذر إرسال رسالة التحقق. يمكنك طلبها لاحقًا.";
+}
+
+message.style.color = "#287A52";
+registerForm.reset();
 
         } catch (error) {
             console.error("Registration error:", error);

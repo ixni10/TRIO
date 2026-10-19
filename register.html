@@ -109,12 +109,38 @@
                     <h2>إنشاء حساب جديد</h2>
 
                     <p>
-                        انضمي إلينا وابدئي رحلتك التعليمية
+                        انضم إلينا وابدئي رحلتك التعليمية
                     </p>
 
                 </div>
 
                 <form id="register-form">
+                    <!-- اسم الطالبة -->
+<div class="form-group">
+
+    <label for="register-name">
+        الاسم الثلاثي
+    </label>
+
+    <div class="input-wrapper">
+
+        <input
+            type="text"
+            id="register-name"
+            name="displayName"
+            placeholder="أدخل اسمك "
+            autocomplete="name"
+            minlength="2"
+            maxlength="60"
+            required>
+
+        <span class="input-icon" aria-hidden="true">
+            ♡
+        </span>
+
+    </div>
+
+</div>
 
                     <!-- البريد الإلكتروني -->
                     <div class="form-group">
@@ -129,7 +155,7 @@
                                 type="email"
                                 id="register-email"
                                 name="email"
-                                placeholder="أدخلي بريدك الإلكتروني"
+                                placeholder="أدخل بريدك الإلكتروني"
                                 autocomplete="email"
                                 required>
 
@@ -154,7 +180,7 @@
                                 type="password"
                                 id="register-password"
                                 name="password"
-                                placeholder="أنشئي كلمة مرور"
+                                placeholder="أنشئ كلمة مرور"
                                 autocomplete="new-password"
                                 minlength="8"
                                 required>
@@ -173,7 +199,7 @@
                         </div>
 
                         <small class="password-hint">
-                            استخدمي 8 أحرف على الأقل.
+                            استخدم 8 خانات على الأقل.
                         </small>
 
                     </div>
@@ -191,7 +217,7 @@
                                 type="password"
                                 id="confirm-password"
                                 name="confirm-password"
-                                placeholder="أعيدي كتابة كلمة المرور"
+                                placeholder="أعد كتابة كلمة المرور"
                                 autocomplete="new-password"
                                 minlength="8"
                                 required>
@@ -214,7 +240,7 @@
                     <!-- الموافقة -->
                     <div class="terms-note">
 
-                        بإنشاء حسابك، ستتمكنين من الوصول إلى
+                        بإنشاء حسابك، ستتمكن من الوصول إلى
                         الخدمات التعليمية المتاحة في TRIO.
 
                     </div>
