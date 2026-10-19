@@ -75,136 +75,94 @@ document.querySelectorAll("[data-password-target]").forEach((button) => {
 const registerForm = document.getElementById("register-form");
 
 if (registerForm) {
-
     registerForm.addEventListener("submit", async (event) => {
-
         event.preventDefault();
 
         const emailInput = document.getElementById("register-email");
         const passwordInput = document.getElementById("register-password");
         const confirmPasswordInput = document.getElementById("confirm-password");
         const message = document.getElementById("register-message");
-        const submitButton = registerForm.querySelector(
-            'button[type="submit"]'
-        );
+        const submitButton = registerForm.querySelector('button[type="submit"]');
+        const buttonText = submitButton.querySelector("span");
 
         const email = emailInput.value.trim();
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
 
-        // التحقق من تطابق كلمتي المرور
-        if (password !== confirmPassword) {
-
-            message.textContent = "كلمتا المرور غير متطابقتين.";
-            message.style.color = "#C0394A";
-
-            confirmPasswordInput.focus();
-
-            return;
-        }
-
-        // التحقق من الحد الأدنى لطول كلمة المرور
-        if (password.length < 8) {
-
-            message.textContent = "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل.";
-            message.style.color = "#C0394A";
-
-            passwordInput.focus();
-
-            return;
-        }
-
-        // منع تكرار الضغط أثناء إنشاء الحساب
-        submitButton.disabled = true;
-        submitButton.querySelector("span").textContent = "جارٍ إنشاء الحساب...";
-
         message.textContent = "";
         message.style.color = "";
 
-        try {
+        if (password !== confirmPassword) {
+            message.textContent = "كلمتا المرور غير متطابقتين.";
+            message.style.color = "#C0394A";
+            confirmPasswordInput.focus();
+            return;
+        }
 
-            // إنشاء الحساب في Firebase Authentication
+        if (password.length < 8) {
+            message.textContent = "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل.";
+            message.style.color = "#C0394A";
+            passwordInput.focus();
+            return;
+        }
+
+        submitButton.disabled = true;
+        buttonText.textContent = "جارٍ إنشاء الحساب...";
+
+        try {
             const userCredential = await createUserWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
 
-            // إرسال رسالة التحقق من البريد الإلكتروني
             try {
-
                 await sendEmailVerification(userCredential.user);
 
                 message.textContent =
                     "تم إنشاء حسابك بنجاح! تحققي من بريدك الإلكتروني لتأكيد الحساب.";
-
-                message.style.color = "#287A52";
-
             } catch (verificationError) {
-
-                console.error(
-                    "Email verification error:",
-                    verificationError
-                );
+                console.error("Email verification error:", verificationError);
 
                 message.textContent =
-                    "تم إنشاء حسابك بنجاح، لكن تعذر إرسال رسالة التحقق. يمكنك طلب إرسالها لاحقًا.";
-
-                message.style.color = "#287A52";
-
+                    "تم إنشاء حسابك، لكن تعذر إرسال رسالة التحقق. يمكنك طلبها لاحقًا.";
             }
 
-            // إعادة تعيين النموذج بعد نجاح إنشاء الحساب
+            message.style.color = "#287A52";
             registerForm.reset();
 
         } catch (error) {
-
             console.error("Registration error:", error);
 
             const errorMessages = {
-
                 "auth/email-already-in-use":
                     "هذا البريد الإلكتروني مسجل مسبقًا. جرّبي تسجيل الدخول.",
-
                 "auth/invalid-email":
                     "البريد الإلكتروني غير صحيح.",
-
                 "auth/weak-password":
                     "كلمة المرور ضعيفة. اختاري كلمة مرور أقوى.",
-
                 "auth/network-request-failed":
-                    "تعذر الاتصال بالإنترنت. تحققي من اتصالك وحاولي مجددًا.",
-
+                    "تعذر الاتصال بالإنترنت. حاولي مجددًا.",
                 "auth/too-many-requests":
                     "حدثت محاولات كثيرة. انتظري قليلًا ثم حاولي مجددًا.",
-
                 "auth/operation-not-allowed":
                     "إنشاء الحسابات غير مفعّل في إعدادات Firebase.",
-
                 "auth/invalid-api-key":
                     "تعذر الاتصال بـ Firebase. تحققي من إعدادات المشروع."
-
             };
 
             message.textContent =
                 errorMessages[error.code] ||
-                "تعذر إنشاء الحساب حاليًا. حاولي مجددًا.";
+                `تعذر إنشاء الحساب (${error.code || "خطأ غير معروف"}). راجعي Console للتفاصيل.`;
 
             message.style.color = "#C0394A";
 
         } finally {
-
             submitButton.disabled = false;
-
-            submitButton.querySelector("span").textContent =
-                "إنشاء الحساب";
-
+            buttonText.textContent = "إنشاء الحساب";
         }
-
     });
-
 }
-
 // ========================================
 // تسجيل الدخول والتحقق من البريد الإلكتروني
 // ========================================
@@ -312,34 +270,6 @@ if (passwordInput && togglePassword) {
 
 
 
-// إظهار وإخفاء كلمات المرور في صفحة إنشاء الحساب
-const registerPasswordToggles = document.querySelectorAll(
-    'button.password-toggle[data-password-target]'
-);
 
-registerPasswordToggles.forEach((button) => {
-    const targetId = button.getAttribute("data-password-target");
-    const input = document.getElementById(targetId);
-
-    if (!input) return;
-
-    button.addEventListener("click", () => {
-        const isHidden = input.type === "password";
-
-        input.type = isHidden ? "text" : "password";
-
-        button.setAttribute(
-            "aria-label",
-            isHidden ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"
-        );
-
-        button.setAttribute("aria-pressed", String(isHidden));
-
-        const icon = button.querySelector("span");
-        if (icon) {
-            icon.textContent = isHidden ? "◎" : "◉";
-        }
-    });
-});
 
 
