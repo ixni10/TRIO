@@ -911,4 +911,33 @@ button {
         width: 130px;
         height: 75px;
     }
+
+
+
+    /*هنا اضافة تعديل الصفحة بالجوال*/
+
+        .login-page {
+        min-height: 100vh;
+        min-height: 100svh;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: visible;
+        padding-bottom: 30px;
+        box-sizing: border-box;
+    }
+
+    .login-container {
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+    }
+
+    .login-card {
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+        box-sizing: border-box;
+    }
 }
+
+
