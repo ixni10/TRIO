@@ -106,10 +106,10 @@
 
         <div class="error-number">404</div>
 
-        <h1>عذرًا! الصفحة غير موجودة</h1>
+        <h1 id="error-title">عذرًا! الصفحة غير موجودة</h1>
 
-        <p>
-يبدو أن الصفحة التي تبحث عنها غير متاحة حاليًا، أو لم تتم إضافتها إلى المنصة بعد.
+        <p id="error-message">
+            يبدو أن الصفحة التي تبحث عنها غير متاحة حاليًا، أو لم تتم إضافتها إلى المنصة بعد.
             <br>
             لا تقلق، يمكنك العودة إلى المنصة ومتابعة رحلتك التعليمية.
         </p>
@@ -123,5 +123,35 @@
         </div>
 
     </main>
+
+    <script>
+        const currentPath = window.location.pathname.toLowerCase();
+
+        const title = document.getElementById("error-title");
+        const message = document.getElementById("error-message");
+
+        if (
+            currentPath.includes("physics") ||
+            currentPath.includes("الفيزياء")
+        ) {
+            document.title = "قسم الفيزياء | TRIO";
+
+            title.textContent = "ترقبوا قسم الفيزياء";
+
+            message.textContent =
+                "ترقبوا انطلاق قسم الفيزياء في الفصل الدراسي الثاني لعام 1448";
+        } else if (
+            currentPath.includes("chemistry") ||
+            currentPath.includes("الكيما") ||
+            currentPath.includes("الكيمياء")
+        ) {
+            document.title = "قسم الكيمياء | TRIO";
+
+            title.textContent = "ترقبوا قسم الكيمياء";
+
+            message.textContent =
+                "ترقبوا انطلاق قسم الكيمياء في الفصل الدراسي الثاني لعام 1448";
+        }
+    </script>
 </body>
 </html>
