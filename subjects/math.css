@@ -626,191 +626,116 @@ input:focus-visible {
     cursor: default;
 }
 
-@media (max-width: 480px) {
-    .lesson-card {
-        padding: 17px;
-        gap: 12px;
-        border-radius: 15px;
-    }
-
-    .lesson-title {
-        font-size: 18px;
-    }
-
-    .lesson-links {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* PROGRESS SECTION */
-
-.progress-section {
-    direction: ltr;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-        "message start"
-        "track count";
-    align-items: center;
-    width: 90%;
-    max-width: 1100px;
-    margin: 30px auto 45px;
-    padding: 15px 12px;
-    column-gap: 15px;
-    row-gap: 12px;
-    box-sizing: border-box;
-}
-
-.progress-message {
-    grid-area: message;
-    direction: ltr;
+.trio-login-modal {
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 9px;
-    min-width: 0;
-    color: var(--blue);
-    font-size: 13px;
-}
-
-.trophy-icon {
-    flex-shrink: 0;
-    font-size: 23px;
-}
-
-.progress-start {
-    grid-area: start;
-    direction: rtl;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 7px;
-    min-width: 0;
-    color: var(--blue);
-    font-size: 12px;
-    white-space: nowrap;
-}
-
-.progress-star {
-    flex-shrink: 0;
-    color: var(--gold);
-    font-size: 19px;
-}
-
-.progress-track {
-    grid-area: track;
-    width: 100%;
-    height: 9px;
-    min-width: 0;
-    overflow: hidden;
-    border-radius: 20px;
-    background: #dce8f0;
-}
-
-.progress-fill {
-    display: block;
-    width: 0;
-    height: 100%;
-    border-radius: inherit;
-    background: linear-gradient(90deg, #8bb7d9, #6795c4);
-    transition: width 0.4s ease;
-}
-
-.progress-count {
-    grid-area: count;
-    color: var(--blue);
-    font-size: 13px;
-    font-weight: 800;
-    white-space: nowrap;
-}
-
-/* EMPTY STATES */
-
-.grade-empty-state {
-    width: 100%;
-    padding: 55px 25px;
-    border: 1px solid #e3eaf0;
-    border-radius: 18px;
-    background: #fffdf9;
-    text-align: center;
-}
-
-.grade-empty-state[hidden] {
-    display: none !important;
-}
-
-.grade-empty-state h2 {
-    margin-bottom: 10px;
-    color: var(--navy);
-    font-size: 25px;
-    font-weight: 800;
-}
-
-.grade-empty-state p {
-    color: #8296a8;
-    font-size: 15px;
-}
-
-/* SEARCH EMPTY MESSAGE */
-
-.search-empty-state {
-    display: none;
-    width: 100%;
-    padding: 25px 15px;
-    color: #8296a8;
-    text-align: center;
-    font-size: 14px;
-}
-
-.search-empty-state.visible {
-    display: block;
-}
-
-/* LOADING STATE */
-
-.loading-state {
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 150px;
-    color: var(--blue);
+
+    width: 100%;
+    max-width: 430px;
+    padding: 38px 28px 30px;
+
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e8eaf2;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(25, 39, 75, 0.2);
+    animation: trioModalIn 0.2s ease-out;
+}
+
+.trio-lock-icon {
+    margin-bottom: 10px;
+    font-size: 38px;
+}
+
+.trio-login-modal h2 {
+    margin: 0 0 10px;
+    color: #34466c;
+    font-size: 21px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.trio-login-modal p {
+    max-width: 340px;
+    margin: 0 0 22px;
+    color: #78839d;
     font-size: 14px;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.trio-modal-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+}
+
+.trio-login-action,
+.trio-register-action {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
     font-weight: 700;
+    line-height: 1.6;
+    transition: 0.2s;
 }
 
-.loading-spinner {
-    width: 25px;
-    height: 25px;
-    margin-left: 10px;
-    border: 3px solid #dce8f0;
-    border-top-color: var(--blue);
-    border-radius: 50%;
-    animation: loadingSpin 0.8s linear infinite;
+.trio-login-action {
+    background: #819de0;
+    color: #ffffff;
 }
 
-@keyframes loadingSpin {
-    to {
-        transform: rotate(360deg);
+.trio-register-action {
+    background: #eef2ff;
+    color: #526ba5;
+}
+
+.trio-login-action:hover,
+.trio-register-action:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .trio-login-overlay {
+        padding: 14px;
+    }
+
+    .trio-login-modal {
+        max-width: 380px;
+        padding: 36px 20px 24px;
+    }
+
+    .trio-login-modal h2 {
+        font-size: 19px;
+    }
+
+    .trio-login-modal p {
+        font-size: 13px;
+    }
+
+    .trio-modal-actions {
+        gap: 9px;
+    }
+
+    .trio-login-action,
+    .trio-register-action {
+        min-height: 48px;
+        font-size: 12px;
     }
 }
-
-/* ACCESSIBILITY */
-
-[hidden] {
-    display: none !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
 /* GUEST / LOGIN PROMPT */
 
 .trio-login-modal {
