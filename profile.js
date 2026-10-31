@@ -121,8 +121,7 @@ changePasswordButton.addEventListener("click", async () => {
 logoutButton.addEventListener("click", async () => {
     try {
         await signOut(auth);
-        window.location.replace("index.html");
-    } catch (error) {
+window.location.replace("subjects/home.html");    } catch (error) {
         console.error("Logout error:", error);
         alert("تعذر تسجيل الخروج. حاولي مرة أخرى.");
     }

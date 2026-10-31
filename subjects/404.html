@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - الصفحة غير موجودة | TRIO</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: linear-gradient(135deg, #edf5ff, #e3eaff, #f8edff);
+            color: #34466c;
+            text-align: center;
+        }
+
+        .error-card {
+            width: 100%;
+            max-width: 520px;
+            padding: 48px 28px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 28px;
+            box-shadow: 0 15px 45px rgba(80, 105, 160, 0.12);
+        }
+
+        .logo {
+            width: 76px;
+            height: 76px;
+            object-fit: contain;
+            margin-bottom: 18px;
+        }
+
+        .error-number {
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #819de0;
+            letter-spacing: 4px;
+        }
+
+        h1 {
+            font-size: 25px;
+            margin: 12px 0;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.9;
+            color: #78839d;
+            margin-bottom: 28px;
+        }
+
+        .home-button {
+            display: inline-block;
+            padding: 13px 28px;
+            border-radius: 14px;
+            background: #819de0;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .home-button:hover {
+            background: #6b87ca;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            margin-top: 32px;
+            font-size: 12px;
+            color: #a1abc0;
+        }
+
+        @media (max-width: 480px) {
+            .error-card {
+                padding: 38px 20px;
+            }
+
+            .error-number {
+                font-size: 76px;
+            }
+
+            h1 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="error-card">
+
+        <img src="/images/trio-logo.png" alt="TRIO Logo" class="logo">
+
+        <div class="error-number">404</div>
+
+        <h1 id="error-title">عذرًا! الصفحة غير موجودة</h1>
+
+        <p id="error-message">
+            يبدو أن الصفحة التي تبحث عنها غير متاحة حاليًا، أو لم تتم إضافتها إلى المنصة بعد.
+            <br>
+            لا تقلق، يمكنك العودة إلى المنصة ومتابعة رحلتك التعليمية.
+        </p>
+
+      <a href="#" id="homeButton" class="home-button">
+    العودة إلى الصفحة الرئيسية
+</a>
+
+        <div class="footer">
+            TRIO © 2026
+        </div>
+
+    </main>
+
+  <script>
+  const subjectType = new URLSearchParams(window.location.search).get("subject");
+
+  const title = document.getElementById("error-title");
+  const message = document.getElementById("error-message");
+
+  if (subjectType === "physics") {
+    document.title = "قسم الفيزياء | TRIO";
+    title.textContent = "ترقبوا قسم الفيزياء";
+    message.textContent =
+      "ترقبوا انطلاق قسم الفيزياء في الفصل الدراسي الثاني لعام 1448";
+
+  } else if (subjectType === "chemistry") {
+    document.title = "قسم الكيمياء | TRIO";
+    title.textContent = "ترقبوا قسم الكيمياء";
+    message.textContent =
+      "ترقبوا انطلاق قسم الكيمياء في الفصل الدراسي الثاني لعام 1448";
+  }
+</script>
+
+ <script>
+    const homeButton = document.getElementById("homeButton");
+
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get("from");
+
+    if (source === "dashboard") {
+        homeButton.href = "/dashboard.html";
+    } else {
+        homeButton.href = "/subjects/home.html";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fbf8f2">
+    <title>الرياضيات | TRIO</title>
+    <link rel="stylesheet" href="math.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+<header class="math-header">
+    <div class="header-inner">
+
+        <!-- Ministry Logo - Far Right -->
+        <a href="../dashboard.html" class="moe-header-logo">
+            <img src="../images/moe-logo.svg" alt="وزارة التعليم">
+        </a>
+
+        <!-- Left Side Actions -->
+        <div class="header-left-group">
+
+            <!-- Profile Dropdown -->
+            <div class="profile-container" id="profileContainer">
+
+                <button
+                    type="button"
+                    class="profile-button"
+                    id="profileButton"
+                    aria-expanded="false"
+                    aria-controls="profileDropdown"
+                >
+                    <span class="profile-avatar" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20"
+                             fill="none" stroke="currentColor"
+                             stroke-width="1.7" stroke-linecap="round"
+                             stroke-linejoin="round">
+                            <path d="M2 9.5 12 4l10 5.5L12 15 2 9.5Z"/>
+                            <path d="M6 12v5c3.5 2.5 8.5 2.5 12 0v-5"/>
+                            <path d="M22 9.5v6"/>
+                        </svg>
+                    </span>
+
+                    <span class="profile-button-text">حسابي</span>
+                    <span class="profile-chevron" aria-hidden="true">⌄</span>
+                </button>
+
+                <div class="profile-dropdown" id="profileDropdown" hidden>
+
+                    <div class="profile-welcome">
+
+                        <span class="profile-avatar profile-avatar-large" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="36" height="36"
+                                 fill="none" stroke="currentColor"
+                                 stroke-width="1.7" stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <path d="M2 9.5 12 4l10 5.5L12 15 2 9.5Z"/>
+                                <path d="M6 12v5c3.5 3 8.5 3 12 0v-5"/>
+                                <path d="M22 9.5V16"/>
+                            </svg>
+                        </span>
+
+                        <div class="profile-user-info">
+                            <p class="profile-greeting">مرحباً،</p>
+                            <strong id="profileName">حسابك</strong>
+                            <small id="profileEmail"></small>
+                        </div>
+
+                    </div>
+
+                    <div class="profile-divider"></div>
+
+                    <button type="button"
+                            class="profile-menu-item"
+                            id="profileDetailsButton">
+                        الملف الشخصي
+                    </button>
+
+                    <button type="button"
+                            class="profile-menu-item profile-logout"
+                            id="logoutButton">
+                        تسجيل الخروج
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Search -->
+            <form class="search-box" id="searchForm">
+                <input
+                    type="search"
+                    id="lessonSearch"
+                    placeholder="ابحث عن درس أو موضوع..."
+                    aria-label="البحث عن درس"
+                >
+
+                <button type="submit" aria-label="بحث">
+                    <svg viewBox="0 0 24 24" width="21" height="21"
+                         fill="none" stroke="currentColor"
+                         stroke-width="1.8" stroke-linecap="round">
+                        <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                        <path d="m16 16 4.5 4.5"></path>
+                    </svg>
+                </button>
+            </form>
+
+            <!-- Return Button -->
+            <a href="../dashboard.html"
+               class="home-return-link"
+               id="homeReturnButton">
+
+                <span>العودة إلى الصفحة الرئيسية</span>
+
+                <svg class="return-arrow"
+                     xmlns="http://www.w3.org/2000/svg"
+                     width="18" height="18"
+                     viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor"
+                     stroke-width="1.8"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     aria-hidden="true">
+                    <path d="M19 12H5"></path>
+                    <path d="m12 19-7-7 7-7"></path>
+                </svg>
+
+            </a>
+
+            <!-- Mobile Menu -->
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="فتح القائمة"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+        </div>
+    </div>
+</header>
+
+    <main>
+
+        <section class="math-hero">
+            <img
+                src="../images/math-banner.png"
+                alt="الرياضيات — خطوة بخطوة، نحو فهم أعمق"
+                class="math-banner"
+            >
+        </section>
+
+        <section class="grade-section">
+            <div class="grade-selector-wrapper">
+
+                <div class="grade-decoration grade-decoration-left" aria-hidden="true">
+                    <span class="decoration-line"></span>
+                </div>
+
+                <div class="grade-selector" role="group" aria-label="اختيار المرحلة الدراسية">
+
+                    <button
+                        class="grade-button active"
+                        type="button"
+                        data-grade="first"
+                        aria-pressed="true">
+                        الأول الثانوي
+                    </button>
+
+                    <button
+                        class="grade-button"
+                        type="button"
+                        data-grade="second"
+                        aria-pressed="false">
+                        الثاني الثانوي
+                    </button>
+
+                    <button
+                        class="grade-button"
+                        type="button"
+                        data-grade="third"
+                        aria-pressed="false">
+                        الثالث الثانوي
+                    </button>
+
+                </div>
+
+                <div class="grade-decoration grade-decoration-right" aria-hidden="true">
+                    <span class="decoration-line"></span>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="lessons-section">
+            <div class="lessons-heading">
+                <span class="heading-line"></span>
+                <h1>مقاطع الشروحات</h1>
+                <span class="heading-line"></span>
+            </div>
+
+            <div class="lessons-grid" id="lessonsGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="progress-section">
+            <div class="progress-message">
+                <span class="trophy-icon" aria-hidden="true">🏆</span>
+                <span>تقدّمك في مادة الرياضيات</span>
+            </div>
+
+            <div
+                class="progress-track"
+                role="progressbar"
+                aria-label="التقدم في المادة"
+                aria-valuemin="0"
+                aria-valuemax="1"
+                aria-valuenow="0"
+            >
+                <div class="progress-fill"></div>
+            </div>
+
+            <span class="progress-count" id="progressCount">0/1</span>
+
+            <div class="progress-start">
+                <span>مستقبلك يبدأ من هنا</span>
+                <span class="progress-star" aria-hidden="true">✦</span>
+            </div>
+        </section>
+
+    </main>
+
+        <!-- Firebase and Page Functionality -->
+    <script type="module">
+        import {
+            initializeApp,
+            getApps
+        } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+
+        import {
+            getAuth,
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+
+        import {
+            getFirestore,
+            doc,
+            getDoc,
+            setDoc,
+            collection,
+            getDocs,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
+
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD4pXvEtvQucyjHViD-i0jCzEfe9PKAP0o",
+            authDomain: "trio-edu.firebaseapp.com",
+            projectId: "trio-edu",
+            storageBucket: "trio-edu.firebasestorage.app",
+            messagingSenderId: "674708890455",
+            appId: "1:674708890455:web:caf174082215dbfe1e5412",
+            measurementId: "G-WS0TP8ZFM2"
+        };
+
+        const app = getApps().length
+            ? getApps()[0]
+            : initializeApp(firebaseConfig);
+
+     const auth = getAuth(app);
+const db = getFirestore(app);
+
+// تحديد وضع الدخول للصفحة
+const pageMode = new URLSearchParams(window.location.search).get("mode");
+const forceGuestMode = pageMode === "guest";
+
+        // Page elements
+        const lessonsGrid = document.getElementById("lessonsGrid");
+        const progressFill = document.querySelector(".progress-fill");
+        const progressTrack = document.querySelector(".progress-track");
+        const progressCount = document.getElementById("progressCount");
+
+        const gradeButtons = document.querySelectorAll(".grade-button");
+
+        const profileContainer = document.getElementById("profileContainer");
+        const homeReturnButton = document.getElementById("homeReturnButton");
+        const profileButton = document.getElementById("profileButton");
+        const profileDropdown = document.getElementById("profileDropdown");
+        const profileButtonText = document.querySelector(".profile-button-text");
+
+        const profileName = document.getElementById("profileName");
+        const profileEmail = document.getElementById("profileEmail");
+
+        const logoutButton = document.getElementById("logoutButton");
+        const profileDetailsButton = document.getElementById("profileDetailsButton");
+
+        const searchForm = document.getElementById("searchForm");
+        const lessonSearch = document.getElementById("lessonSearch");
+
+
+        // Current state
+        let activeUser = null;
+        let selectedGrade = "first";
+        let completedLessonIds = new Set();
+
+
+        // Actual available mathematics content
+        const mathLessons = [
+            {
+                id: "lesson-01",
+                number: 1,
+                title: "التبرير والبرهان",
+                videoUrl: "https://youtu.be/UktrkCNXQsg?si=DR3H24nX4W2hsica",
+quizUrl: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u1uHtnHzDUiroSlyzgQsKw0-JpiD91BHtwBz06guXihUQjZZUEgzVDRDVU5PQkQyQ0kzUTBPVlpTMy4u"            }
+        ];
+
+
+        // Normalize external URLs
+        function safeExternalUrl(url) {
+            if (!url) return "";
+
+            try {
+                const parsed = new URL(url);
+
+                return ["https:", "http:"].includes(parsed.protocol)
+                    ? parsed.href
+                    : "";
+            } catch {
+                return "";
+            }
+        }
+
+
+        // Show a login/register prompt when a guest selects a locked feature
+        function showLoginPrompt() {
+            const existingModal = document.getElementById("loginPromptModal");
+
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            const modal = document.createElement("div");
+
+            modal.id = "loginPromptModal";
+            modal.className = "trio-login-overlay";
+
+            modal.innerHTML = `
+                <div class="trio-login-modal"
+                     role="dialog"
+                     aria-modal="true"
+                     aria-labelledby="loginPromptTitle">
+
+                    <button type="button"
+                            class="trio-modal-close"
+                            aria-label="إغلاق">
+                        &times;
+                    </button>
+
+                    <div class="trio-lock-icon">🔒</div>
+
+                    <h2 id="loginPromptTitle">الميزة تتطلب تسجيل الدخول</h2>
+
+                    <p>
+                        هذه الميزة متاحة للمستخدمين المسجلين في TRIO.
+                        سجّل دخولك للاستفادة من جميع الخدمات التعليمية.
+                    </p>
+
+                    <div class="trio-modal-actions">
+                        <a href="../index.html" class="trio-login-action">
+                            تسجيل الدخول
+                        </a>
+
+                        <a href="../register.html" class="trio-register-action">
+                            إنشاء حساب
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            const closeButton = modal.querySelector(".trio-modal-close");
+
+            closeButton.addEventListener("click", () => modal.remove());
+
+            modal.addEventListener("click", event => {
+                if (event.target === modal) {
+                    modal.remove();
+                }
+            });
+
+            document.addEventListener("keydown", function closeOnEscape(event) {
+                if (event.key === "Escape" && document.getElementById("loginPromptModal")) {
+                    modal.remove();
+                    document.removeEventListener("keydown", closeOnEscape);
+                }
+            });
+
+            closeButton.focus();
+        }
+
+
+        // Lock the video/quiz links for guests
+        function lockResource(label) {
+            return `
+                <button type="button"
+                        class="lesson-resource lesson-resource-disabled guest-locked"
+                        data-locked-feature="true"
+                        aria-label="${label} — يتطلب تسجيل الدخول">
+                    🔒 ${label}
+                </button>
+            `;
+        }
+
+
+        // Render lesson cards
+        function renderMathLessons() {
+            if (selectedGrade !== "first") {
+                lessonsGrid.innerHTML = `
+                    <div class="no-content-message">
+                        <div class="no-content-icon">📚</div>
+
+                        <h2>المحتوى قيد الإعداد</h2>
+
+                        <p>
+                            لم تتم إضافة محتوى هذا الصف حتى الآن.
+                            نعمل على تجهيزه لإتاحته قريبًا.
+                        </p>
+                    </div>
+                `;
+
+                updateProgressUI();
+                return;
+            }
+
+            lessonsGrid.innerHTML = mathLessons.map((lesson, index) => {
+                const completed = completedLessonIds.has(lesson.id);
+
+                const videoUrl = safeExternalUrl(lesson.videoUrl);
+                const quizUrl = safeExternalUrl(lesson.quizUrl);
+
+              const videoContent = videoUrl
+    ? `<a class="lesson-resource lesson-video"
+          href="${videoUrl}"
+          target="_blank"
+          rel="noopener noreferrer">
+          ▶ مشاهدة الشرح
+       </a>`
+    : `<span class="lesson-resource lesson-resource-disabled">
+          ▶ الشرح غير متاح حاليًا
+       </span>`;
+
+                const quizContent = activeUser
+                    ? (
+                        quizUrl
+                            ? `<a class="lesson-resource lesson-quiz"
+                                  href="${quizUrl}"
+                                  target="_blank"
+                                  rel="noopener noreferrer">
+                                  ☑ اختبار الدرس
+                               </a>`
+                            : `<span class="lesson-resource lesson-resource-disabled">
+                                  ☑ الاختبار غير متاح حاليًا
+                               </span>`
+                    )
+                    : lockResource("اختبار الدرس");
+
+                return `
+                    <article class="lesson-card${completed ? " is-completed" : ""}"
+                             data-lesson-id="${lesson.id}">
+
+                        <div class="lesson-card-top">
+                            <span class="lesson-number">
+                                الدرس ${index + 1}
+                            </span>
+
+                            <span class="lesson-complete-badge"
+                                  ${completed ? "" : "hidden"}>
+                                ✓
+                            </span>
+                        </div>
+
+                        <h2 class="lesson-title">${lesson.title}</h2>
+
+                        <p class="lesson-status">
+                        ${completed ? "✓ تم إنهاء الدرس" : ""}
+                        </p>
+
+                        <div class="lesson-links">
+                            ${videoContent}
+                            ${quizContent}
+                        </div>
+
+                        <button type="button"
+                                class="lesson-complete-button"
+                                data-complete-lesson="${lesson.id}"
+                                ${!activeUser || completed ? "disabled" : ""}>
+                            ${completed
+                                ? "✓ تم إنهاء الدرس"
+                                : activeUser
+                                    ? "إنهاء الدرس"
+                                    : "🔒 إنهاء الدرس"}
+                        </button>
+
+                    </article>
+                `;
+            }).join("");
+
+            updateProgressUI();
+        }
+
+
+        // Update progress
+        function updateProgressUI() {
+            const total = mathLessons.length;
+            const completedCount = completedLessonIds.size;
+
+            const percentage = total
+                ? Math.round((completedCount / total) * 100)
+                : 0;
+
+            progressCount.textContent = `${completedCount}/${total}`;
+            progressFill.style.width = `${percentage}%`;
+
+            progressTrack.setAttribute("aria-valuemax", String(total));
+            progressTrack.setAttribute("aria-valuenow", String(completedCount));
+        }
+
+
+        // Load progress belonging to the signed-in account
+        async function loadLessonProgress(user) {
+            const progressCollection = collection(
+                db,
+                "users",
+                user.uid,
+                "lessonProgress"
+            );
+
+            const snapshot = await getDocs(progressCollection);
+
+            completedLessonIds = new Set(
+                snapshot.docs
+                    .filter(item => item.data().completed === true)
+                    .map(item => item.id)
+                    .filter(id => mathLessons.some(lesson => lesson.id === id))
+            );
+        }
+
+
+        // Handle clicks on locked resources and lesson completion
+        lessonsGrid.addEventListener("click", async event => {
+            const lockedFeature = event.target.closest("[data-locked-feature]");
+
+            if (lockedFeature) {
+                showLoginPrompt();
+                return;
+            }
+
+            const completeButton = event.target.closest("[data-complete-lesson]");
+
+            if (!completeButton) return;
+
+            if (!activeUser) {
+                showLoginPrompt();
+                return;
+            }
+
+            const lessonId = completeButton.dataset.completeLesson;
+
+            if (!mathLessons.some(lesson => lesson.id === lessonId)) return;
+            if (completedLessonIds.has(lessonId)) return;
+
+            completeButton.disabled = true;
+            completeButton.textContent = "جارٍ حفظ التقدم...";
+
+            try {
+                const progressRef = doc(
+                    db,
+                    "users",
+                    activeUser.uid,
+                    "lessonProgress",
+                    lessonId
+                );
+
+                await setDoc(progressRef, {
+                    completed: true,
+                    completedAt: serverTimestamp()
+                });
+
+                completedLessonIds.add(lessonId);
+
+                renderMathLessons();
+
+            } catch (error) {
+                console.error("Saving lesson progress failed:", error);
+
+                completeButton.disabled = false;
+                completeButton.textContent = "إنهاء الدرس";
+
+                alert("تعذّر حفظ التقدم. حاول مرة أخرى.");
+            }
+        });
+
+
+        // Grade selector
+        gradeButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                gradeButtons.forEach(item => {
+                    item.classList.remove("active");
+                    item.setAttribute("aria-pressed", "false");
+                });
+
+                button.classList.add("active");
+                button.setAttribute("aria-pressed", "true");
+
+                selectedGrade = button.dataset.grade;
+
+                renderMathLessons();
+            });
+        });
+
+
+        // Search lessons
+        searchForm.addEventListener("submit", event => {
+            event.preventDefault();
+
+            const query = lessonSearch.value.trim();
+
+            if (!query) {
+                lessonSearch.focus();
+                return;
+            }
+
+            const cards = lessonsGrid.querySelectorAll(".lesson-card");
+            let found = false;
+
+            cards.forEach(card => {
+                const matches = card.textContent
+                    .toLowerCase()
+                    .includes(query.toLowerCase());
+
+                card.hidden = !matches;
+
+                if (matches) found = true;
+            });
+
+            if (!found) {
+                alert("لم يتم العثور على درس بهذا الاسم.");
+            }
+        });
+
+
+      // Mobile navigation
+const menuToggle = document.getElementById("menuToggle");
+const navigation = document.getElementById("navigation");
+
+// تشغيل القائمة فقط إذا كانت موجودة في الصفحة
+if (menuToggle && navigation) {
+
+    menuToggle.addEventListener("click", () => {
+        const isOpen = navigation.classList.toggle("show");
+
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navigation.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navigation.classList.remove("show");
+            menuToggle.setAttribute("aria-expanded", "false");
+        });
+    });
+
+}
+
+
+        // Profile dropdown
+       profileButton.addEventListener("click", event => {
+    event.stopPropagation();
+
+    if (!activeUser) {
+        window.location.href = "../index.html";
+        return;
+    }
+
+    const isOpen =
+        profileButton.getAttribute("aria-expanded") === "true";
+
+    profileButton.setAttribute("aria-expanded", String(!isOpen));
+    profileDropdown.hidden = isOpen;
+});
+
+        document.addEventListener("click", event => {
+            if (!profileContainer.contains(event.target)) {
+                profileDropdown.hidden = true;
+                profileButton.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                profileDropdown.hidden = true;
+                profileButton.setAttribute("aria-expanded", "false");
+            }
+        });
+
+
+        profileDetailsButton.addEventListener("click", () => {
+            if (!activeUser) {
+                showLoginPrompt();
+                return;
+            }
+
+            window.location.href = "../profile.html";
+        });
+
+
+        // Logout
+        logoutButton.addEventListener("click", async () => {
+            if (!activeUser) {
+                showLoginPrompt();
+                return;
+            }
+
+            logoutButton.disabled = true;
+
+            try {
+                await signOut(auth);
+window.location.replace("./home.html");
+            } catch (error) {
+                console.error("Logout error:", error);
+                alert("تعذّر تسجيل الخروج. حاول مرة أخرى.");
+                logoutButton.disabled = false;
+            }
+        });
+
+
+        // Authentication state
+        document.body.style.display = "none";
+
+        onAuthStateChanged(auth, async user => {
+            // Force visitor mode when entering from the public homepage
+if (forceGuestMode) {
+    homeReturnButton.href = "./home.html";
+    activeUser = null;
+    completedLessonIds = new Set();
+
+    profileButtonText.textContent = "تسجيل الدخول";
+    profileName.textContent = "زائر";
+    profileEmail.textContent = "";
+
+    logoutButton.hidden = true;
+    profileDetailsButton.textContent = "تسجيل الدخول";
+
+    renderMathLessons();
+    updateProgressUI();
+
+    document.body.style.display = "";
+    return;
+}
+            activeUser = null;
+            completedLessonIds = new Set();
+
+            if (!user) { homeReturnButton.href = "./home.html";
+                profileButtonText.textContent = "تسجيل الدخول";
+                profileName.textContent = "زائر";
+                profileEmail.textContent = "";
+
+                logoutButton.hidden = true;
+                profileDetailsButton.textContent = "تسجيل الدخول";
+
+                renderMathLessons();
+                updateProgressUI();
+
+                document.body.style.display = "";
+                return;
+            }
+
+            try {
+                await user.reload();
+
+                const currentUser = auth.currentUser;
+
+                if (!currentUser || !currentUser.emailVerified) {
+                    await signOut(auth);
+
+                    activeUser = null;
+                    renderMathLessons();
+
+                    document.body.style.display = "";
+                    return;
+                }
+
+                const userRef = doc(db, "users", currentUser.uid);
+                const userSnapshot = await getDoc(userRef);
+
+                let displayName = userSnapshot.exists()
+                    ? userSnapshot.data().displayName || ""
+                    : "";
+
+                if (!displayName || displayName.trim().length < 2) {
+                    const enteredName = prompt(
+                        "مرحبًا بك في TRIO\nأدخل الاسم الذي سيظهر في الملف الشخصي:"
+                    );
+
+                    if (!enteredName || enteredName.trim().length < 2) {
+                        alert("يمكنك تسجيل الدخول لاحقًا لإكمال إعداد الملف الشخصي.");
+
+                        await signOut(auth);
+
+                        activeUser = null;
+                        renderMathLessons();
+
+                        document.body.style.display = "";
+                        return;
+                    }
+
+                    displayName = enteredName.trim();
+
+                    await setDoc(userRef, {
+                        displayName,
+                        email: currentUser.email
+                    }, { merge: true });
+                }
+
+                activeUser = currentUser;
+                homeReturnButton.href = "../dashboard.html";
+
+                profileButtonText.textContent = displayName;
+                profileName.textContent = displayName;
+                profileEmail.textContent = currentUser.email || "";
+
+                logoutButton.hidden = false;
+                profileDetailsButton.textContent = "الملف الشخصي";
+
+                await loadLessonProgress(currentUser);
+
+                renderMathLessons();
+
+                document.body.style.display = "";
+
+            } catch (error) {
+                console.error("Math authentication error:", error);
+
+                activeUser = null;
+                completedLessonIds = new Set();
+
+                renderMathLessons();
+
+                document.body.style.display = "";
+
+                alert(
+                    "تعذّر تحميل بيانات الحساب. يمكنك استعراض الدروس المتاحة، لكن قد لا يتم حفظ تقدمك."
+                );
+            }
+        });
+
+    </script>
+
+        <style>
+        .trio-login-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(30, 42, 67, 0.48);
+            backdrop-filter: blur(5px);
+        }
+
+        .trio-login-modal {
+            position: relative;
+            width: 100%;
+            max-width: 430px;
+            padding: 35px 25px;
+            text-align: center;
+            background: #ffffff;
+            border: 1px solid #e8eaf2;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(25, 39, 75, 0.2);
+            animation: trioModalIn 0.2s ease-out;
+        }
+
+        .trio-modal-close {
+            position: absolute;
+            top: 12px;
+            left: 14px;
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 50%;
+            background: #f1f4fa;
+            color: #526384;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .trio-lock-icon {
+            margin-bottom: 12px;
+            font-size: 42px;
+        }
+
+        .trio-login-modal h2 {
+            margin: 0 0 12px;
+            color: #34466c;
+            font-size: 22px;
+        }
+
+        .trio-login-modal p {
+            margin: 0 0 24px;
+            color: #78839d;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .trio-modal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .trio-login-action,
+        .trio-register-action {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .trio-login-action {
+            background: #819de0;
+            color: #ffffff;
+        }
+
+        .trio-register-action {
+            background: #eef2ff;
+            color: #526ba5;
+        }
+
+        .trio-login-action:hover,
+        .trio-register-action:hover {
+            transform: translateY(-2px);
+        }
+
+        .no-content-message {
+            grid-column: 1 / -1;
+            width: 100%;
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 45px 25px;
+            text-align: center;
+            background: #ffffff;
+            border: 1px solid #e8eaf2;
+            border-radius: 24px;
+            box-shadow: 0 8px 25px rgba(80, 105, 160, 0.08);
+        }
+
+        .no-content-icon {
+            margin-bottom: 15px;
+            font-size: 42px;
+        }
+
+        .no-content-message h2 {
+            margin-bottom: 12px;
+            color: #34466c;
+            font-size: 23px;
+        }
+
+        .no-content-message p {
+            color: #78839d;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .guest-locked {
+            cursor: pointer;
+        }
+
+        .guest-locked:hover {
+            opacity: 0.8;
+        }
+
+        @keyframes trioModalIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+    </style>
+
+</body>
+</html>

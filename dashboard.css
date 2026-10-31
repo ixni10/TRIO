@@ -47,8 +47,9 @@ a {
 
 .header-inner {
     min-height: 108px;
-    max-width: 1500px;
-    padding: 12px 3.5%;
+    width: 100%;
+    max-width: none;
+    padding: 12px 25px 12px 3.5%;
     margin: auto;
     display: flex;
     align-items: center;
@@ -63,8 +64,8 @@ a {
 }
 
 .logo img {
-    width: 240px;
-    height: 140px;
+    width: 145px;
+    height: 85px;
     object-fit: contain;
     display: block;
 }
@@ -319,6 +320,7 @@ a {
 .footer-decoration {
     width: min(800px, 90%);
     height: 1px;
+
     background: linear-gradient(
         to right,
         transparent,
@@ -327,8 +329,11 @@ a {
         var(--blue-light),
         transparent
     );
+
     margin: 0 auto 17px;
 }
+
+
 
 .footer p {
     font-size: 16px;
@@ -715,3 +720,422 @@ a {
     }
 }
 
+/* قسم الاختبارات التجريبية - تصميم TRIO */
+.tests-section {
+    text-align: center;
+    padding: 50px 20px 75px;
+    background: linear-gradient(
+        180deg,
+        rgba(245, 239, 229, 0),
+        rgba(245, 239, 229, 0.7)
+    );
+}
+
+.tests-section .section-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tests-section .section-heading h2 {
+    color: #174875;
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.tests-section .heading-line {
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #cbb17b;
+}
+
+.tests-section .section-description {
+    color: #6795c4;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.tests-section .tests-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    min-height: 47px;
+    padding: 8px 23px;
+    border: 1.5px solid #6795c4;
+    border-radius: 13px;
+    background: #6795c4;
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.25s, background 0.25s;
+}
+
+.tests-section .tests-button:hover {
+    background: #174875;
+    border-color: #174875;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .tests-section .section-heading {
+        gap: 12px;
+    }
+
+    .tests-section .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .tests-section .heading-line {
+        width: 28px;
+    }
+
+    .tests-section .section-description {
+        font-size: 14px;
+    }
+}
+
+/* =========================================
+   TRIO TEAM & SUPERVISION
+========================================= */
+
+.team-section {
+    width: min(100% - 36px, 1250px);
+    margin: 0 auto 35px;
+    padding: 10px 0 15px;
+    direction: rtl;
+}
+
+.team-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 30px 35px 32px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(184, 208, 228, 0.17),
+            transparent 65%
+        ),
+        linear-gradient(135deg, #fffefa, #fffdf9);
+
+    border: 1px solid #eadfcf;
+    border-radius: 23px;
+
+    box-shadow: 0 8px 25px rgba(23, 72, 117, 0.055);
+}
+
+/* Decorative details */
+
+.team-sparkle {
+    position: absolute;
+    z-index: -1;
+    color: #d7b675;
+    pointer-events: none;
+}
+
+.sparkle-top {
+    top: 20px;
+    left: 45px;
+    font-size: 29px;
+}
+
+.sparkle-left {
+    top: 65px;
+    left: 18px;
+    font-size: 22px;
+}
+
+.sparkle-right {
+    top: 75px;
+    right: 28px;
+    font-size: 25px;
+}
+
+/* Main heading */
+
+.team-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    margin-bottom: 28px;
+}
+
+.team-heading span {
+    width: 95px;
+    height: 1px;
+    background: #cbb17b;
+}
+
+.team-heading h2 {
+    margin: 0;
+    color: #174875;
+    font-size: 27px;
+    font-weight: 800;
+    text-align: center;
+}
+
+/* Supervisors */
+
+.supervisors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+
+    max-width: 840px;
+    margin: 0 auto 22px;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid #eee8df;
+    border-radius: 15px;
+
+    transition: 0.25s ease;
+}
+
+.team-member:hover {
+    border-color: #d9c69e;
+    transform: translateY(-2px);
+}
+
+.supervisor {
+    min-height: 100px;
+    padding: 17px 22px;
+}
+
+.member-icon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        145deg,
+        #e8eff6,
+        #f1f0f5
+    );
+
+    color: #3976ad;
+}
+
+.member-icon svg {
+    width: 27px;
+    height: 27px;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.member-info span {
+    color: #7894ad;
+    font-size: 14px;
+}
+
+.member-info strong {
+    color: #174875;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+/* Students heading */
+
+.students-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    margin: 15px 0 18px;
+}
+
+.students-heading h3 {
+    margin: 0;
+    color: #174875;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.students-heading span {
+    color: #cbb17b;
+    font-size: 18px;
+}
+
+/* Students grid */
+
+.students-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.student {
+    min-height: 62px;
+    padding: 10px 16px;
+}
+
+.student .member-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+}
+
+.student .member-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.student strong {
+    color: #174875;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .team-section {
+        width: calc(100% - 28px);
+    }
+
+    .team-card {
+        padding: 25px 16px;
+    }
+
+    .team-heading {
+        gap: 12px;
+    }
+
+    .team-heading span {
+        width: 35px;
+    }
+
+    .team-heading h2 {
+        font-size: 21px;
+    }
+
+    .supervisors-grid {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .students-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .supervisor {
+        min-height: 80px;
+        padding: 12px 15px;
+    }
+
+    .member-info strong {
+        font-size: 16px;
+    }
+
+    .student {
+        min-height: 57px;
+    }
+
+    .sparkle-top {
+        left: 15px;
+    }
+}
+
+/* TRIO Telegram Footer Button */
+.footer-telegram {
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    padding: 11px 17px;
+    margin: 15px 0;
+    background: #ffffff;
+    border: 1px solid #dce7ef;
+    border-radius: 14px;
+    color: #174875;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(23, 72, 117, 0.05);
+    transition: all 0.3s ease;
+}
+
+.telegram-icon {
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f3fb;
+    border-radius: 50%;
+    color: #279bd6;
+    flex-shrink: 0;
+}
+
+.telegram-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.telegram-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-align: right;
+}
+
+.telegram-text strong {
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.telegram-text small {
+    font-size: 10px;
+    color: #7b91a6;
+}
+
+.telegram-action {
+    margin-right: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #6795c4;
+    white-space: nowrap;
+}
+
+.footer-telegram:hover {
+    transform: translateY(-3px);
+    border-color: #8db9df;
+    box-shadow: 0 7px 20px rgba(23, 72, 117, 0.12);
+}
+
+.footer-tagline {
+    margin: 10px 0 15px;
+    color: #6795c4;
+    font-size: 12px;
+    text-align: center;
+}

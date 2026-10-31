@@ -8,6 +8,7 @@
     <title>TRIO | استعد للتحصيلي بثقة</title>
 
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="comments.css">
 </head>
 
 <body>
@@ -16,10 +17,9 @@
     <header class="header">
         <div class="header-inner">
 
-            <a href="dashboard.html" class="logo">
-                <img src="images/trio-logo.png" alt="TRIO">
-            </a>
-
+           <a href="dashboard.html" class="logo">
+    <img src="images/moe-logo.svg" alt="وزارة التعليم السعودية">
+</a>
             <nav class="navigation">
                 <a href="dashboard.html" class="nav-link active">الرئيسية</a>
                 <a href="#subjects" class="nav-link">المواد الدراسية</a>
@@ -154,18 +154,21 @@
                 <span class="heading-line"></span>
             </div>
 
-            <div class="subjects-grid">
+        <div class="subjects-grid">
 
     <!-- الرياضيات -->
-    <a href="subjects/math.html" class="subject-card">
+<a href="subjects/math.html?mode=member" class="subject-card">
         <svg class="subject-icon" viewBox="0 0 100 100"
              aria-label="آلة حاسبة" role="img">
+
             <rect x="23" y="12" width="54" height="76"
                   rx="7" fill="none" stroke="currentColor"
                   stroke-width="3.5"/>
+
             <rect x="32" y="21" width="36" height="13"
                   rx="2" fill="none" stroke="currentColor"
                   stroke-width="3"/>
+
             <g fill="none" stroke="currentColor" stroke-width="3">
                 <rect x="32" y="43" width="8" height="8" rx="1"/>
                 <rect x="46" y="43" width="8" height="8" rx="1"/>
@@ -177,6 +180,7 @@
                 <rect x="46" y="71" width="8" height="8" rx="1"/>
                 <rect x="60" y="71" width="8" height="8" rx="1"/>
             </g>
+
             <path d="M79 18 L82 25 L89 28 L82 31 L79 38 L76 31 L69 28 L76 25 Z"
                   fill="#cbb17b"/>
         </svg>
@@ -187,23 +191,27 @@
 
 
     <!-- الكيمياء -->
-    <a href="subjects/chemistry.html" class="subject-card">
-        <svg class="subject-icon" viewBox="0 0 100 100"
+<a href="subjects/404.html?subject=chemistry&from=dashboard" class="subject-card">        <svg class="subject-icon" viewBox="0 0 100 100"
              aria-label="دورق كيميائي" role="img">
+
             <path d="M39 13 H61 M44 13 V39 L19 77
                      Q15 86 26 88 H74
                      Q85 86 81 77 L56 39 V13"
                   fill="none" stroke="currentColor"
                   stroke-width="3.5" stroke-linejoin="round"/>
+
             <path d="M29 69 H71 L79 81 Q81 86 73 86 H27
                      Q19 86 23 80 Z"
                   fill="#e7d3a5"/>
+
             <circle cx="40" cy="76" r="3" fill="#cbb17b"/>
             <circle cx="56" cy="72" r="4" fill="#cbb17b"/>
             <circle cx="49" cy="63" r="2.5" fill="#cbb17b"/>
+
             <path d="M78 38 L81 45 L88 48 L81 51 L78 58
                      L75 51 L68 48 L75 45 Z"
                   fill="#cbb17b"/>
+
             <circle cx="59" cy="7" r="2.5" fill="#cbb17b"/>
             <circle cx="65" cy="3" r="2" fill="#cbb17b"/>
         </svg>
@@ -214,19 +222,23 @@
 
 
     <!-- الفيزياء -->
-    <a href="subjects/physics.html" class="subject-card">
-        <svg class="subject-icon" viewBox="0 0 100 100"
+<a href="subjects/404.html?subject=physics&from=dashboard" class="subject-card">        <svg class="subject-icon" viewBox="0 0 100 100"
              aria-label="رمز الذرة" role="img">
+
             <g fill="none" stroke="currentColor" stroke-width="2.8">
                 <ellipse cx="50" cy="50" rx="37" ry="14"
                          transform="rotate(0 50 50)"/>
+
                 <ellipse cx="50" cy="50" rx="37" ry="14"
                          transform="rotate(60 50 50)"/>
+
                 <ellipse cx="50" cy="50" rx="37" ry="14"
                          transform="rotate(120 50 50)"/>
             </g>
+
             <circle cx="50" cy="50" r="5.5" fill="#cbb17b"/>
             <circle cx="82" cy="39" r="3" fill="#cbb17b"/>
+
             <path d="M77 13 L80 20 L87 23 L80 26 L77 33
                      L74 26 L67 23 L74 20 Z"
                   fill="#cbb17b"/>
@@ -237,118 +249,367 @@
     </a>
 
 
-  <!-- الأحياء -->
-<a href="subjects/biology.html" class="subject-card">
+    <!-- الأحياء -->
+<a href="subjects/404.html?from=dashboard" class="subject-card">
+        <svg class="subject-icon biology-icon"
+             viewBox="0 0 100 100"
+             role="img"
+             aria-label="DNA">
 
-    <svg class="subject-icon biology-icon"
-         viewBox="0 0 100 100"
-         role="img"
-         aria-label="DNA">
+            <g fill="none"
+               stroke="#17649b"
+               stroke-width="2.4"
+               stroke-linecap="round">
 
-        <g fill="none"
-           stroke="#17649b"
-           stroke-width="2.4"
-           stroke-linecap="round">
+                <path d="
+                    M37 9
+                    C37 21 63 25 63 35
+                    C63 45 37 49 37 59
+                    C37 69 63 73 63 83
+                    C63 87 58 91 54 94
+                "/>
 
-            <!-- الشريط الأول -->
+                <path d="
+                    M63 9
+                    C63 21 37 25 37 35
+                    C37 45 63 49 63 59
+                    C63 69 37 73 37 83
+                    C37 87 42 91 46 94
+                "/>
+
+                <path d="M40 15 H60"/>
+                <path d="M47 23 H53"/>
+                <path d="M40 30 H60"/>
+                <path d="M40 40 H60"/>
+                <path d="M47 47 H53"/>
+                <path d="M40 54 H60"/>
+                <path d="M40 64 H60"/>
+                <path d="M47 71 H53"/>
+                <path d="M40 78 H60"/>
+                <path d="M44 88 H56"/>
+            </g>
+
             <path d="
-                M37 9
-                C37 21 63 25 63 35
-                C63 45 37 49 37 59
-                C37 69 63 73 63 83
-                C63 87 58 91 54 94
-            "/>
+                M77 23 L80 30 L87 33 L80 36
+                L77 43 L74 36 L67 33 L74 30 Z
+            " fill="#cbb17b"/>
 
-            <!-- الشريط الثاني -->
             <path d="
-                M63 9
-                C63 21 37 25 37 35
-                C37 45 63 49 63 59
-                C63 69 37 73 37 83
-                C37 87 42 91 46 94
-            "/>
+                M22 55 L24 60 L29 62 L24 64
+                L22 69 L20 64 L15 62 L20 60 Z
+            " fill="#cbb17b"/>
 
-            <!-- الروابط -->
-            <path d="M40 15 H60"/>
-            <path d="M47 23 H53"/>
-            <path d="M40 30 H60"/>
-            <path d="M40 40 H60"/>
-            <path d="M47 47 H53"/>
-            <path d="M40 54 H60"/>
-            <path d="M40 64 H60"/>
-            <path d="M47 71 H53"/>
-            <path d="M40 78 H60"/>
-            <path d="M44 88 H56"/>
+        </svg>
 
-        </g>
+        <h2>أحياء</h2>
+        <span class="card-line"></span>
+    </a>
 
-        <!-- اللمعات الذهبية -->
-        <path d="
-            M77 23 L80 30 L87 33 L80 36
-            L77 43 L74 36 L67 33 L74 30 Z
-        " fill="#cbb17b"/>
-
-        <path d="
-            M22 55 L24 60 L29 62 L24 64
-            L22 69 L20 64 L15 62 L20 60 Z
-        " fill="#cbb17b"/>
-
-    </svg>
-
-    <h2>أحياء</h2>
-    <span class="card-line"></span>
-
-</a>
 </div>
         </section>
 
 
         <!-- Practice Tests -->
-        <section class="tests-section" id="tests">
+      <section class="tests-section" id="tests">
+    <div class="section-heading">
+        <span class="heading-line"></span>
+        <h2>اختبر مستواك</h2>
+        <span class="heading-line"></span>
+    </div>
 
-            <div class="section-heading">
-                <span class="heading-line"></span>
-                <h2>اختبر مستواك</h2>
-                <span class="heading-line"></span>
+    <p class="section-description">
+        تدرب على الاختبارات التجريبية واستعد للتحصيل بثقة.
+    </p>
+
+    <a
+        class="button button-primary tests-button"
+        href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=u1uHtnHzDUiroSlyzgQsKw0-JpiD91BHtwBz06guXihUQzUzV0paOFU1U1BIRjM3UEVZVE9TSk4zWC4u&route=shorturl"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        ← الاختبارات التجريبية
+    </a>
+</section>
+
+    
+<!-- TRIO Comments Section -->
+<section class="comments-section" id="comments">
+
+    <div class="comments-layout">
+
+        <!-- بطاقة آراؤكم تهمنا -->
+        <div class="comments-welcome-card">
+
+            <div class="comments-decoration decoration-one">✦</div>
+            <div class="comments-decoration decoration-two">✧</div>
+            <div class="comments-decoration decoration-three">✦</div>
+
+            <div class="comments-chat-icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M10 8h44a6 6 0 0 1 6 6v29a6 6 0 0 1-6 6H29L15 59V49h-5a6 6 0 0 1-6-6V14a6 6 0 0 1 6-6Z"
+                          fill="#8DB9DF"/>
+                    <circle cx="21" cy="29" r="3.5" fill="#fff"/>
+                    <circle cx="32" cy="29" r="3.5" fill="#fff"/>
+                    <circle cx="43" cy="29" r="3.5" fill="#fff"/>
+                </svg>
             </div>
 
-            <p class="section-description">
-                تدرب على الاختبارات التجريبية واستعد للتحصيلي بثقة.
-            </p>
-
-            <a href="tests.html" class="button button-primary tests-button">
-                الاختبارات التجريبية ←
-            </a>
-
-        </section>
-
-
-        <!-- About -->
-        <section class="about-section" id="about">
-
-            <h2>عن منصة TRIO</h2>
+            <h2>آراؤكم تهمنا</h2>
 
             <p>
-                منصة تعليمية تساعدك على الاستعداد للاختبار التحصيلي
-                من خلال الدروس والاختبارات التجريبية.
+                شاركنا تجربتك، اقتراحاتك، أو أي ملاحظة تساعدنا
+                على تطوير TRIO وجعل المنصة أفضل للجميع.
             </p>
 
-        </section>
+            <button class="button button-primary comments-write-button"
+                    id="openCommentModal" type="button">
+                اكتب تعليقك الآن
+                <span aria-hidden="true">←</span>
+            </button>
 
+        </div>
+
+        <!-- بطاقة أحدث التعليقات -->
+        <div class="comments-feed-card">
+
+            <h2 class="comments-feed-title">
+                أحدث التعليقات
+            </h2>
+
+            <p class="comments-count" id="commentsCount">
+                إجمالي التعليقات: 0
+            </p>
+
+            <div class="comments-list" id="commentsList" aria-live="polite"></div>
+
+            <button class="comments-show-all"
+                    id="showAllComments"
+                    type="button" hidden>
+                إظهار جميع التعليقات
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- About TRIO -->
+<section class="about-section" id="about">
+    <h2>عن منصة TRIO</h2>
+
+    <p>
+        تُعدّ TRIO مبادرة تعليمية رقمية تهدف إلى تطوير تجربة الاستعداد للاختبار التحصيلي عبر محتوى تعليمي واختبارات تجريبية.
+        رؤيتنا بناء تجربة تعليمية أكثر كفاءة وابتكارًا، توظّف التقنية لتمكين المتعلمين.
+    </p>
+</section>
+<!-- Team & Supervision -->
+<section class="team-section" id="team">
+
+    <div class="team-card">
+
+        <span class="team-sparkle sparkle-top">✦</span>
+        <span class="team-sparkle sparkle-left">✧</span>
+        <span class="team-sparkle sparkle-right">✦</span>
+
+        <!-- Section Heading -->
+        <div class="team-heading">
+            <span></span>
+            <h2>فريق العمل والإشراف</h2>
+            <span></span>
+        </div>
+
+        <!-- Supervisors -->
+        <div class="supervisors-grid">
+
+            <div class="team-member supervisor">
+                <div class="member-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.6">
+                        <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+                        <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>
+                    </svg>
+                </div>
+
+                <div class="member-info">
+                    <span>المديرة</span>
+                    <strong>أ. شيخة العتيبي</strong>
+                </div>
+            </div>
+
+            <div class="team-member supervisor">
+                <div class="member-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.6"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+                        <path d="M14 2v6h6"/>
+                        <path d="M8 13h8M8 17h5"/>
+                        <path d="m15 18 4-4 2 2-4 4-3 1Z"/>
+                    </svg>
+                </div>
+
+                <div class="member-info">
+                    <span>إعداد وإشراف</span>
+                    <strong>أ. أروى العايدي</strong>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Students Heading -->
+        <div class="students-heading">
+            <span>✦</span>
+            <h3>تنفيذ الطالبات</h3>
+            <span>✦</span>
+        </div>
+
+        <!-- Students -->
+        <div class="students-grid">
+
+            <div class="team-member student">
+                <div class="member-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.6">
+                        <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+                        <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>
+                    </svg>
+                </div>
+                <strong>لانا الغامدي</strong>
+            </div>
+
+            <div class="team-member student">
+                <div class="member-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.6">
+                        <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+                        <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>
+                    </svg>
+                </div>
+                <strong>ضي الهدباني</strong>
+            </div>
+
+            <div class="team-member student">
+                <div class="member-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.6">
+                        <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+                        <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>
+                    </svg>
+                </div>
+                <strong>رنيم سليماني</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
     </main>
 
+<!-- نافذة كتابة التعليق -->
+<div class="comment-modal" id="commentModal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="commentModalTitle">
 
+    <div class="comment-modal-card">
+
+        <h2 class="comment-modal-title" id="commentModalTitle">
+            شاركنا رأيك
+        </h2>
+
+        <p class="comment-modal-description">
+            يسعدنا معرفة تجربتك مع TRIO.
+        </p>
+
+        <form id="commentForm">
+
+            <div class="comment-form-group">
+                <label for="commentName">الاسم (اختياري)</label>
+                <input id="commentName" type="text"
+                       maxlength="40" placeholder="اكتب اسمك">
+            </div>
+
+            <div class="comment-form-group">
+<label for="commentRole">فئة المستخدم</label>
+                <select id="commentRole" required>
+                    <option value="">اختر الفئة</option>
+                    <option value="طالب / طالبة">طالب / طالبة</option>
+                    <option value="معلم / معلمة">معلم / معلمة</option>
+                    <option value="ولي أمر">ولي أمر</option>
+                    <option value="خريج / خريجة">خريج / خريجة</option>
+                    <option value="زائر">زائر</option>
+                    <option value="أخرى">أخرى</option>
+                </select>
+            </div>
+
+           <div class="comment-form-group" id="customRoleGroup" hidden>
+    <label for="commentCustomRole">المسمّى أو الصفة</label>
+
+    <input
+        id="commentCustomRole"
+        type="text"
+        maxlength="40"
+        placeholder="مثال: مهندس، دكتورة، مصمم..."
+    >
+</div>
+
+            <div class="comment-form-group">
+                <label for="commentText">التعليق</label>
+                <textarea id="commentText" maxlength="500"
+                          required placeholder="اكتب تعليقك هنا..."></textarea>
+                <small>الحد الأقصى 500 حرف.</small>
+            </div>
+
+            <div class="comment-form-actions">
+                <button type="button" class="button comment-close"
+                        id="closeCommentModal">إلغاء</button>
+
+                <button type="submit" class="button button-primary">
+                    نشر التعليق
+                </button>
+            </div>
+
+            <p class="comment-status" id="commentStatus" role="status"></p>
+
+        </form>
+    </div>
+</div>
     <!-- Footer -->
     <footer class="footer">
 
         <div class="footer-decoration"></div>
+       
+   
 
-        <p>
+       
+<a
+    href="https://t.me/trio3tahsili"
+    class="footer-telegram"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="انضم إلى قناة TRIO على تيليجرام"
+>
+    <span class="telegram-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+                fill="currentColor"
+                d="M21.8 4.2 18.7 19c-.2 1-.8 1.2-1.6.7l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.8.4l.3-4.6 8.4-7.6c.4-.3-.1-.5-.6-.2L7.3 13.2l-4.4-1.4c-1-.3-1-1 .2-1.5L20.2 3.5c.8-.3 1.8.2 1.6.7Z"
+            />
+        </svg>
+    </span>
+
+    <span class="telegram-text">
+        <strong>قناة TRIO على تيليجرام</strong>
+        <small>انضم إلينا وكن على اطلاع بكل جديد</small>
+    </span>
+
+    <span class="telegram-action">انضم الآن ←</span>
+</a>
+  <p>
             <span>TRIO</span>
             <span class="footer-divider">|</span>
             منصتك للاستعداد للاختبار التحصيلي
         </p>
-
         <small>TRIO © 2026 — crafted by ixni10</small>
 
     </footer>
@@ -440,8 +701,7 @@
 
         try {
             await signOut(auth);
-            window.location.replace("index.html");
-        } catch (error) {
+window.location.replace("subjects/home.html");        } catch (error) {
             console.error("Logout error:", error);
             alert("تعذر تسجيل الخروج. حاولي مرة أخرى.");
             logoutButton.disabled = false;
@@ -525,5 +785,6 @@
         }
     });
 </script>
+<script type="module" src="comments.js"></script>
 </body>
 </html>
