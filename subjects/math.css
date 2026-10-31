@@ -496,7 +496,6 @@ input:focus-visible {
     border-color: #7ac69a;
     background: #fbfffc;
 }
-
 .lesson-card-top {
     display: flex;
     align-items: center;
@@ -736,6 +735,7 @@ input:focus-visible {
         font-size: 12px;
     }
 }
+
 /* GUEST / LOGIN PROMPT */
 
 .trio-login-modal {
@@ -897,13 +897,102 @@ input:focus-visible {
     flex-shrink: 1;
 }
 
+/* PROGRESS SECTION - DESKTOP */
+
+.progress-section {
+    direction: ltr;
+    width: 90%;
+    max-width: 1450px;
+    margin: 35px auto 25px;
+    padding: 12px 3%;
+    display: grid;
+    grid-template-columns: max-content minmax(140px, 1fr) max-content max-content;
+    align-items: center;
+    column-gap: 16px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: 'Cairo', sans-serif;
+}
+
+.progress-message {
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    color: #438acb;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.trophy-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 26px;
+    line-height: 1;
+}
+
+.progress-track {
+    width: 100%;
+    min-width: 100px;
+    height: 8px;
+    overflow: hidden;
+    background: #dce6ee;
+    border-radius: 20px;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #4f96d0;
+    border-radius: inherit;
+    transition: width 0.3s ease;
+}
+
+.progress-count {
+    direction: ltr;
+    color: #438acb;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.progress-start {
+    direction: rtl;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-left: 22px;
+    margin-left: 12px;
+    border-left: 1px solid #e4d9c4;
+    color: #438acb;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.progress-star {
+    flex-shrink: 0;
+    color: #cbb17b;
+    font-size: 22px;
+    line-height: 1;
+}
+
 /* =========================================================
    RESPONSIVE LAYOUT
    Consolidated tablet and mobile rules
 ========================================================= */
 
 /* TABLET */
-
 @media (max-width: 1150px) {
 
     .header-inner {
@@ -1197,7 +1286,10 @@ input:focus-visible {
         width: auto;
         min-width: 0;
         gap: 7px;
-        font-size: 11px;
+        color: #438acb;
+        font-family: 'Cairo', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
         white-space: normal;
     }
 
@@ -1217,7 +1309,10 @@ input:focus-visible {
         margin: 0;
         padding: 0;
         border: 0;
-        font-size: 10px;
+        color: #438acb;
+        font-family: 'Cairo', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
         white-space: nowrap;
     }
 
@@ -1235,7 +1330,10 @@ input:focus-visible {
 
     .progress-count {
         grid-area: count;
-        font-size: 11px;
+        color: #438acb;
+        font-family: 'Cairo', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
         white-space: nowrap;
     }
 
@@ -1360,16 +1458,16 @@ input:focus-visible {
     }
 
     .progress-message {
-        font-size: 10px;
+        font-size: 11px;
         gap: 5px;
     }
 
     .progress-start {
-        font-size: 9px;
+        font-size: 10px;
     }
 
     .progress-count {
-        font-size: 10px;
+        font-size: 11px;
     }
 }
 
@@ -1386,10 +1484,10 @@ input:focus-visible {
     }
 
     .progress-start {
-        font-size: 8px;
+        font-size: 9px;
     }
 
     .progress-message {
-        font-size: 9px;
+        font-size: 10px;
     }
 }
