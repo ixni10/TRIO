@@ -369,12 +369,13 @@ quizUrl: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u1uHtnHzDUiro
                     </p>
 
                     <div class="trio-modal-actions">
-                        <a href="../index.html" class="trio-login-action">
-                            تسجيل الدخول
-                        </a>
+                        <a href="../login.html" class="trio-login-action">
+    تسجيل الدخول
+</a>
 
-                        <a href="../register.html" class="trio-register-action">
-                            إنشاء حساب
+                       <a href="../register.html" class="trio-register-action">
+    إنشاء حساب
+</a>
                         </a>
                     </div>
                 </div>
@@ -402,7 +403,93 @@ quizUrl: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u1uHtnHzDUiro
             closeButton.focus();
         }
 
+// Custom TRIO confirmation modal for undoing lesson completion
+function confirmUndoLesson() {
 
+    return new Promise(resolve => {
+
+        const modal = document.createElement("div");
+
+        modal.id = "undoLessonModal";
+        modal.className = "trio-login-overlay";
+
+        modal.innerHTML = `
+            <div class="trio-login-modal"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="undoLessonTitle">
+
+                <button type="button"
+                        class="trio-modal-close"
+                        aria-label="إغلاق">
+                    &times;
+                </button>
+
+                <div class="trio-lock-icon">📝</div>
+
+                <h2 id="undoLessonTitle">
+                    هل تريد إلغاء إكمال هذا الدرس؟
+                </h2>
+
+                <p>
+                    سيُزال الدرس من قائمة الدروس المكتملة،
+                    وسيتم تحديث نسبة تقدمك بناءً على ذلك.
+                </p>
+
+                <div class="trio-modal-actions">
+
+                    <button type="button"
+                            class="trio-login-action"
+                            id="confirmUndoYes"
+                            style="border:0; cursor:pointer; font-family:inherit;">
+                        نعم، إلغاء الإكمال
+                    </button>
+
+                    <button type="button"
+                            class="trio-register-action"
+                            id="confirmUndoNo"
+                            style="border:0; cursor:pointer; font-family:inherit;">
+                        الاحتفاظ بالتقدم
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        const closeButton = modal.querySelector(".trio-modal-close");
+        const yesButton = modal.querySelector("#confirmUndoYes");
+        const noButton = modal.querySelector("#confirmUndoNo");
+
+        function closeModal(confirmed) {
+            modal.remove();
+            document.removeEventListener("keydown", handleEscape);
+            resolve(confirmed);
+        }
+
+        yesButton.addEventListener("click", () => closeModal(true));
+        noButton.addEventListener("click", () => closeModal(false));
+        closeButton.addEventListener("click", () => closeModal(false));
+
+        modal.addEventListener("click", event => {
+            if (event.target === modal) {
+                closeModal(false);
+            }
+        });
+
+        function handleEscape(event) {
+            if (event.key === "Escape") {
+                closeModal(false);
+            }
+        }
+
+        document.addEventListener("keydown", handleEscape);
+
+        noButton.focus();
+    });
+}
         // Lock the video/quiz links for guests
         function lockResource(label) {
             return `
@@ -460,7 +547,7 @@ quizUrl: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u1uHtnHzDUiro
                                   href="${quizUrl}"
                                   target="_blank"
                                   rel="noopener noreferrer">
-                                  ☑ اختبار الدرس
+                                  📝 اختبار الدرس
                                </a>`
                             : `<span class="lesson-resource lesson-resource-disabled">
                                   ☑ الاختبار غير متاح حاليًا
@@ -494,16 +581,16 @@ quizUrl: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u1uHtnHzDUiro
                             ${quizContent}
                         </div>
 
-                        <button type="button"
-                                class="lesson-complete-button"
-                                data-complete-lesson="${lesson.id}"
-                                ${!activeUser || completed ? "disabled" : ""}>
-                            ${completed
-                                ? "✓ تم إنهاء الدرس"
-                                : activeUser
-                                    ? "إنهاء الدرس"
-                                    : "🔒 إنهاء الدرس"}
-                        </button>
+                       <button type="button"
+        class="lesson-complete-button"
+        data-complete-lesson="${lesson.id}"
+        ${!activeUser ? "disabled" : ""}>
+    ${completed
+        ? "↶ إلغاء إكمال الدرس"
+        : activeUser
+            ? "إنهاء الدرس"
+            : "🔒 إنهاء الدرس"}
+</button>
 
                     </article>
                 `;
@@ -550,59 +637,96 @@ quizUrl: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=u1uHtnHzDUiro
         }
 
 
-        // Handle clicks on locked resources and lesson completion
-        lessonsGrid.addEventListener("click", async event => {
-            const lockedFeature = event.target.closest("[data-locked-feature]");
+       // Handle lesson completion and undo
+lessonsGrid.addEventListener("click", async event => {
 
-            if (lockedFeature) {
-                showLoginPrompt();
-                return;
-            }
+    const lockedFeature = event.target.closest("[data-locked-feature]");
 
-            const completeButton = event.target.closest("[data-complete-lesson]");
+    if (lockedFeature) {
+        showLoginPrompt();
+        return;
+    }
 
-            if (!completeButton) return;
+    const completeButton = event.target.closest("[data-complete-lesson]");
 
-            if (!activeUser) {
-                showLoginPrompt();
-                return;
-            }
+    if (!completeButton) return;
 
-            const lessonId = completeButton.dataset.completeLesson;
+    if (!activeUser) {
+        showLoginPrompt();
+        return;
+    }
 
-            if (!mathLessons.some(lesson => lesson.id === lessonId)) return;
-            if (completedLessonIds.has(lessonId)) return;
+    const lessonId = completeButton.dataset.completeLesson;
 
-            completeButton.disabled = true;
-            completeButton.textContent = "جارٍ حفظ التقدم...";
+    if (!mathLessons.some(lesson => lesson.id === lessonId)) return;
 
-            try {
-                const progressRef = doc(
-                    db,
-                    "users",
-                    activeUser.uid,
-                    "lessonProgress",
-                    lessonId
-                );
+    const progressRef = doc(
+        db,
+        "users",
+        activeUser.uid,
+        "lessonProgress",
+        lessonId
+    );
 
-                await setDoc(progressRef, {
-                    completed: true,
-                    completedAt: serverTimestamp()
-                });
+    const isCompleted = completedLessonIds.has(lessonId);
 
-                completedLessonIds.add(lessonId);
+    // Undo completion
+    if (isCompleted) {
 
-                renderMathLessons();
+       const confirmed = await confirmUndoLesson();
 
-            } catch (error) {
-                console.error("Saving lesson progress failed:", error);
+if (!confirmed) return;
+        completeButton.disabled = true;
+        completeButton.textContent = "جارٍ تحديث التقدم...";
 
-                completeButton.disabled = false;
-                completeButton.textContent = "إنهاء الدرس";
+        try {
 
-                alert("تعذّر حفظ التقدم. حاول مرة أخرى.");
-            }
+            await setDoc(progressRef, {
+                completed: false,
+                updatedAt: serverTimestamp()
+            });
+
+            completedLessonIds.delete(lessonId);
+
+            renderMathLessons();
+
+        } catch (error) {
+
+            console.error("Undo lesson progress failed:", error);
+
+            renderMathLessons();
+
+            alert("تعذّر إلغاء إكمال الدرس. حاول مرة أخرى.");
+        }
+
+        return;
+    }
+
+    // Complete lesson
+    completeButton.disabled = true;
+    completeButton.textContent = "جارٍ حفظ التقدم...";
+
+    try {
+
+        await setDoc(progressRef, {
+            completed: true,
+            completedAt: serverTimestamp()
         });
+
+        completedLessonIds.add(lessonId);
+
+        renderMathLessons();
+
+    } catch (error) {
+
+        console.error("Saving lesson progress failed:", error);
+
+        renderMathLessons();
+
+        alert("تعذّر حفظ التقدم. حاول مرة أخرى.");
+    }
+
+});
 
 
         // Grade selector
@@ -681,7 +805,7 @@ if (menuToggle && navigation) {
     event.stopPropagation();
 
     if (!activeUser) {
-        window.location.href = "../index.html";
+       window.location.href = "../login.html";
         return;
     }
 
