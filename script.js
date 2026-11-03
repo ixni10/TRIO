@@ -129,7 +129,7 @@ const displayName = nameInput.value.trim();
 
 const user = userCredential.user;
 
-// حفظ اسم الطالبة وبريدها في Firestore
+// حفظ اسم الطلاب وبريدهم في Firestore
 try {
     await setDoc(doc(db, "users", user.uid), {
         displayName: displayName,
@@ -166,19 +166,19 @@ registerForm.reset();
 
             const errorMessages = {
                 "auth/email-already-in-use":
-                    "هذا البريد الإلكتروني مسجل مسبقًا. جرّبي تسجيل الدخول.",
+                    "هذا البريد الإلكتروني مسجل مسبقًا. جرّب تسجيل الدخول.",
                 "auth/invalid-email":
                     "البريد الإلكتروني غير صحيح.",
                 "auth/weak-password":
                     "كلمة المرور ضعيفة. اختاري كلمة مرور أقوى.",
                 "auth/network-request-failed":
-                    "تعذر الاتصال بالإنترنت. حاولي مجددًا.",
+                    "تعذر الاتصال بالإنترنت. حاول مجددًا.",
                 "auth/too-many-requests":
-                    "حدثت محاولات كثيرة. انتظري قليلًا ثم حاولي مجددًا.",
+                    "حدثت محاولات كثيرة. انتظر قليلًا ثم حاولي مجددًا.",
                 "auth/operation-not-allowed":
                     "إنشاء الحسابات غير مفعّل في إعدادات Firebase.",
                 "auth/invalid-api-key":
-                    "تعذر الاتصال بـ Firebase. تحققي من إعدادات المشروع."
+                    "تعذر الاتصال بـ Firebase. تحقق من إعدادات المشروع."
             };
 
             message.textContent =
